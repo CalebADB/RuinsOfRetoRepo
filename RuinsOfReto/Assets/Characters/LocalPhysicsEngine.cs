@@ -35,6 +35,9 @@ namespace masterFeature
         public Dictionary_SpeedYfloat speedYDict = new Dictionary_SpeedYfloat();
         public Vector2 stateSpeed;
 
+        [Range(1f,40f)]
+        public float maxEnvSpeed;
+
         // Velocity
         public Vector2 inputVelocity;
         public Vector2 envVelocity;
@@ -85,9 +88,15 @@ namespace masterFeature
             {
                 envVelocity.y = -inputVelocity.y;
             }
-            if (localCollisionManager.collisionData.horzCollision || localCollisionManager.collisionData.bottomCollision)
+
+            if (localCollisionManager.collisionData.horzCollision )
             {
                 envVelocity.x = 0;
+            }
+            else if(localCollisionManager.collisionData.vertCollision)
+            {
+                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (10 * Time.deltaTime));
+
             }
 
             // Displace object
@@ -172,6 +181,8 @@ namespace masterFeature
             }
 
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
+
+            if (envVelocity.magnitude > maxEnvSpeed) { envVelocity = maxEnvSpeed * envVelocity.normalized; };
         }
 
         private void updateControllerImpactStrength()

@@ -13,6 +13,7 @@ namespace masterFeature
         public GrapplerTether tether;
         public float hookLaunchSpeed;
 
+        [Range(1f, 20f)]
         public float pullStrength;
         public Vector2 pullForce;
         public float pullForceMax;

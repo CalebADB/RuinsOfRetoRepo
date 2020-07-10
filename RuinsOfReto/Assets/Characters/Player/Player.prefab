@@ -103,6 +103,7 @@ MonoBehaviour:
     - 5
     - 4
   stateSpeed: {x: 0, y: 0}
+  maxEnvSpeed: 28.6
   inputVelocity: {x: 0, y: 0}
   envVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
@@ -513,7 +514,7 @@ MonoBehaviour:
   hook: {fileID: 4558037871409277512}
   tether: {fileID: 1702933008439876343}
   hookLaunchSpeed: 1.67
-  pullStrength: 28.66
+  pullStrength: 20
   pullForce: {x: 0, y: 0}
-  pullForceMax: 73.1
+  pullForceMax: 64.73
   grapplerState: 0
