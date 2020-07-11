@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: b7ae6ce7319b84e4799c860af8c0df20
+guid: 917ea5074444f9c4b84ed1cc2c642b5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4417012480970722991
-    second: MC_Jump_Rise-Sheet_0
+      213: -3777793517876888765
+    second: pillars_0
   - first:
-      213: -2508499492686647615
-    second: MC_Jump_Rise-Sheet_1
+      213: -347248075366841778
+    second: pillars_1
   - first:
-      213: 8900274861781712002
-    second: MC_Jump_Rise-Sheet_2
+      213: -1213036255528317540
+    second: pillars_2
   - first:
-      213: 7393178373161278286
-    second: MC_Jump_Rise-Sheet_3
-  - first:
-      213: -2960539847178591326
-    second: MC_Jump_Rise-Sheet_4
-  - first:
-      213: 3170309723457402083
-    second: MC_Jump_Rise-Sheet_5
+      213: 4591877312507497515
+    second: pillars_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,127 +99,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_0
+      name: pillars_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae0ab8f2716c4d30800000000000000
-      internalID: 4417012480970722991
+      spriteID: 34bbc24afc4929bc0800000000000000
+      internalID: -3777793517876888765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_1
+      name: pillars_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 32
         y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ce2a238005003dd0800000000000000
-      internalID: -2508499492686647615
+      spriteID: e4242da17b35e2bf0800000000000000
+      internalID: -347248075366841778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_2
+      name: pillars_2
       rect:
         serializedVersion: 2
-        x: 58
+        x: 64
         y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28c76d3c4d0248b70800000000000000
-      internalID: 8900274861781712002
+      spriteID: c9d8099d3fd6a2fe0800000000000000
+      internalID: -1213036255528317540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_3
+      name: pillars_3
       rect:
         serializedVersion: 2
-        x: 87
+        x: 96
         y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4bd0654f88d99660800000000000000
-      internalID: 7393178373161278286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a3e781d1bc0ae6d0800000000000000
-      internalID: -2960539847178591326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC_Jump_Rise-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 0
-        width: 29
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e435ae75e33ffb20800000000000000
-      internalID: 3170309723457402083
+      spriteID: b2c4f204610a9bf30800000000000000
+      internalID: 4591877312507497515
       vertices: []
       indices: 
       edges: []
