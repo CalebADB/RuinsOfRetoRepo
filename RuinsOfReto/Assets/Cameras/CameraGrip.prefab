@@ -51,7 +51,7 @@ MonoBehaviour:
   steadyCamera: 0
   cameraMaxRadius: 0.7
   cameraCursorPullFactor: 2.12
-  cameraFollowFactor: 0.156
+  cameraFollowFactor: 0.185
   radialAndSeverityRatio: 0
   flatteningValue: 0
 --- !u!20 &2281547672962354540

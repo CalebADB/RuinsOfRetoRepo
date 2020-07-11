@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6302387383945927956}
   - component: {fileID: 6302387383945927959}
-  - component: {fileID: 6302387383945927957}
+  - component: {fileID: 6645043079330451586}
   m_Layer: 0
   m_Name: PhysicsEngine
   m_TagString: PhysicsEngine
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDialation: 1
-  gravity: {fileID: 6302387383945927957}
---- !u!114 &6302387383945927957
+  gravity: {fileID: 0}
+--- !u!114 &6645043079330451586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

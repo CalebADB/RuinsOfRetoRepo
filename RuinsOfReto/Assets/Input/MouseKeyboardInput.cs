@@ -19,14 +19,7 @@ namespace masterFeature
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                VirtualInputManager.Instance.exit = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.exit = false;
-            }
+            VirtualInputManager.Instance.exit = Input.GetKeyDown(KeyCode.Escape);
 
             Vector2 cursorNormalized = cameraGrip.getCameraHeld().ScreenToViewportPoint(Input.mousePosition);
             VirtualInputManager.Instance.cursorX = cursorNormalized.x - 0.5f;
@@ -37,51 +30,14 @@ namespace masterFeature
                 Cursor.lockState = CursorLockMode.Confined;
                 VirtualInputManager.Instance.button1 = true;
             }
-            else
-            {
-                VirtualInputManager.Instance.button1 = false;
-            }
-            if (Input.GetMouseButton(1))
-            {
-                VirtualInputManager.Instance.button2 = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.button2 = false;
-            }
+            else { VirtualInputManager.Instance.button1 = false; };
+            VirtualInputManager.Instance.button2 = Input.GetMouseButton(1);
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                VirtualInputManager.Instance.left = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.left = false;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                VirtualInputManager.Instance.right = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.right = false;
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                VirtualInputManager.Instance.up = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.up = false;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                VirtualInputManager.Instance.down = true;
-            }
-            else
-            {
-                VirtualInputManager.Instance.down = false;
-            }
+            VirtualInputManager.Instance.holdBack = Input.GetKey(KeyCode.LeftShift);
+            VirtualInputManager.Instance.left = Input.GetKey(KeyCode.A);
+            VirtualInputManager.Instance.right = Input.GetKey(KeyCode.D);
+            VirtualInputManager.Instance.up = Input.GetKey(KeyCode.W);
+            VirtualInputManager.Instance.down = Input.GetKey(KeyCode.S);
         }
     }
 }

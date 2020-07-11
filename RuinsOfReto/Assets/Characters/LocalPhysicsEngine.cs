@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace masterFeature
 {
-    [RequireComponent(typeof(PhysicsEngine), typeof(LocalCollisionManager))]
+    [RequireComponent(typeof(LocalCollisionManager))]
     public class LocalPhysicsEngine : MonoBehaviour
     {
         // Prep
@@ -64,6 +64,7 @@ namespace masterFeature
         public void updateEngine()
         {
             // Setup
+                
             parentController = getController();
             frameReset();
 
@@ -80,27 +81,18 @@ namespace masterFeature
             displacement = localCollisionManager.checkDisplacement(displacement);
 
             // Post displacement reactions
+            surfaceVelocityCorrection();
             updateControllerImpactStrength();
             updateEnv();
-
-            // Impact envVelocity correction
-            if (localCollisionManager.collisionData.topCollision)
-            {
-                envVelocity.y = -inputVelocity.y;
-            }
-
-            if (localCollisionManager.collisionData.horzCollision )
-            {
-                envVelocity.x = 0;
-            }
-            else if(localCollisionManager.collisionData.vertCollision)
-            {
-                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (10 * Time.deltaTime));
-
-            }
-
+            
             // Displace object
             this.gameObject.transform.Translate(displacement);
+            if (hasGrappler)
+            {
+                grappler._base.updateGrapplerBase();
+                grappler.hook.updateGrapplerHook(displacement);
+                grappler.tether.updateGrappleTether();
+            }
         }
 
         public Controller getController()
@@ -132,10 +124,11 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    setStateSpeed(SpeedXs.run, SpeedYs.zero);
+                    if (parentController.slow) { setStateSpeed(SpeedXs.walk, SpeedYs.zero); }
+                    else { setStateSpeed(SpeedXs.run, SpeedYs.zero); };
                     break;
                 case Controller.EnvState.Air:
-                    setStateSpeedY(SpeedYs.rise);
+                    setStateSpeed(SpeedXs.air, SpeedYs.rise);
                     break;
                 default:
                     Debug.Log("Enviroment Definition Missing");
@@ -172,19 +165,54 @@ namespace masterFeature
 
             if (hasGrappler)
             {
-                grappler.updateGrapplingHook();
+                grappler.updateGrappler();
                 if (grappler.grapplerState == Grappler.GrapplerStates.hookAttached)
                 {
                     envVelocity.x += grappler.pullForce.x * Time.deltaTime;
                     envVelocity.y += grappler.pullForce.y * Time.deltaTime;
                 }
             }
-
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
 
             if (envVelocity.magnitude > maxEnvSpeed) { envVelocity = maxEnvSpeed * envVelocity.normalized; };
         }
 
+        private void surfaceVelocityCorrection()
+        {
+            switch (parentController.env)
+            {
+                case Controller.EnvState.Ground:
+                    if (Mathf.Abs(envVelocity.x) < 0.1)
+                    {
+                        envVelocity.x = 0;
+                    }
+                    else if (parentController.drop)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
+                    }
+                    else if (localCollisionManager.collisionData.bottomCollision)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (15 * Time.deltaTime));
+                    }
+
+                    if (localCollisionManager.collisionData.horzCollision)
+                    {
+                        envVelocity.x = -envVelocity.x / 8;
+                    }
+                    break;
+                case Controller.EnvState.Air:
+                    if (localCollisionManager.collisionData.topCollision)
+                    {
+                        envVelocity.y = -inputVelocity.y;
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (1 * Time.deltaTime));
+                    }
+                    else if (localCollisionManager.collisionData.horzCollision)
+                    {
+                        envVelocity.x = -envVelocity.x/4;
+                    }
+                    break;
+            }
+        }
         private void updateControllerImpactStrength()
         {
             parentController.impactStrengthPercent = 0f;
@@ -197,9 +225,9 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    if (localCollisionManager.collisionData.vertCollision)
+                    if (localCollisionManager.collisionData.bottomCollision)// vertCollision)
                     {
-                        parentController.impactStrengthPercent += 20f;
+                        parentController.impactStrengthPercent += 35f;
                     }
                     //if (localCollisionManager.collisionData.horzCollision)
                     //{

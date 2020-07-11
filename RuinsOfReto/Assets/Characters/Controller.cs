@@ -14,7 +14,11 @@ namespace masterFeature
 
         // Input
         public bool pause;
+
         public bool useHook;
+
+        public bool slow;
+
         public bool moveRight;
         public bool moveLeft;
         public bool rise;
