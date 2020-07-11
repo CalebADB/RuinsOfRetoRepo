@@ -20,11 +20,6 @@ public class MusicEngine : MonoBehaviour
     [SerializeField]
     private AudioSource ambient_AudioSource;
 
-    [SerializeField]
-    private AnimationCurve fadeinCurve;
-    [SerializeField]
-    private AnimationCurve fadeOutCurve;
-
 
     [Header("Audio Clip List")]
     [SerializeField]
