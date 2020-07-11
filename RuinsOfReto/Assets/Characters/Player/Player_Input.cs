@@ -40,46 +40,13 @@ namespace masterFeature
                         cameraGrip.cameraHeld = CameraGrip.CameraType.PauseMenu;
                         gameState = GameStates.Pause;
                     }
-                    if (VirtualInputManager.Instance.button1)
-                    {
-                        player.useHook = true;
-                    }
-                    else
-                    {
-                        player.useHook = false;
-                    }
-                    if (VirtualInputManager.Instance.right)
-                    {
-                        player.moveRight = true;
-                    }
-                    else
-                    {
-                        player.moveRight = false;
-                    }
-                    if (VirtualInputManager.Instance.left)
-                    {
-                        player.moveLeft = true;
-                    }
-                    else
-                    {
-                        player.moveLeft = false;
-                    }
-                    if (VirtualInputManager.Instance.up)
-                    {
-                        player.rise = true;
-                    }
-                    else
-                    {
-                        player.rise = false;
-                    }
-                    if (VirtualInputManager.Instance.down)
-                    {
-                        player.drop = true;
-                    }
-                    else
-                    {
-                        player.drop = false;
-                    }
+                    player.useHook = VirtualInputManager.Instance.button1;
+
+                    player.slow = VirtualInputManager.Instance.holdBack;
+                    player.moveRight = VirtualInputManager.Instance.right;
+                    player.moveLeft = VirtualInputManager.Instance.left;
+                    player.rise = VirtualInputManager.Instance.up;
+                    player.drop = VirtualInputManager.Instance.down;
                     break;
                 case GameStates.Pause:
                     if (VirtualInputManager.Instance.exit)

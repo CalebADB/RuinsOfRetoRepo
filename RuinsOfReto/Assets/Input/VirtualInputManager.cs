@@ -16,6 +16,7 @@ namespace masterFeature
         public bool button1;
         public bool button2;
 
+        public bool holdBack;
         public bool left;
         public bool right;
         public bool up;

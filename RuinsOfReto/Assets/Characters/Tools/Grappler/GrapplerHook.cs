@@ -40,8 +40,6 @@ namespace masterFeature
                     }
                     break;
                 case (Grappler.GrapplerStates.hookAttached):
-                    Debug.Log("old pod " + this.gameObject.transform.position);
-                    Debug.Log("new " + attachPos);
                     this.gameObject.transform.position = attachPos;
                     break;
             }

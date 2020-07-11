@@ -122,10 +122,11 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    setStateSpeed(SpeedXs.run, SpeedYs.zero);
+                    if (parentController.slow) { setStateSpeed(SpeedXs.walk, SpeedYs.zero); }
+                    else { setStateSpeed(SpeedXs.run, SpeedYs.zero); };
                     break;
                 case Controller.EnvState.Air:
-                    setStateSpeedY(SpeedYs.rise);
+                    setStateSpeed(SpeedXs.air, SpeedYs.rise);
                     break;
                 default:
                     Debug.Log("Enviroment Definition Missing");
