@@ -89,9 +89,9 @@ namespace masterFeature
             this.gameObject.transform.Translate(displacement);
             if (hasGrappler)
             {
-                grappler.hook.updateGrapplerHook();
                 grappler._base.updateGrapplerBase();
-
+                grappler.hook.updateGrapplerHook(displacement);
+                grappler.tether.updateGrappleTether();
             }
         }
 

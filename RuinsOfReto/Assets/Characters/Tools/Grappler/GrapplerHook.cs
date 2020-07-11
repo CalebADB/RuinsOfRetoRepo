@@ -24,7 +24,7 @@ namespace masterFeature
         }
 
         // Update is called once per frame
-        public void updateGrapplerHook()
+        public void updateGrapplerHook(Vector2 controllerDisplacement)
         {
             switch (grappler.grapplerState)
             {
@@ -34,6 +34,7 @@ namespace masterFeature
                     this.gameObject.transform.position = grappler._base.anchor;
                     break;
                 case (Grappler.GrapplerStates.hookOut):
+                    velocity -= controllerDisplacement;
                     velocity -= physicsEngine.gravity.gravityStrength * Time.deltaTime;
                     Vector2 displacement = velocity * Time.deltaTime;
 

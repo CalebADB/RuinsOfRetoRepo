@@ -7,7 +7,6 @@ namespace masterFeature
     public class GrapplerTether : MonoBehaviour
     {
         private Grappler grappler;
-
         LineRenderer lineRenderer;
         public float tetherThickness;
 
@@ -15,13 +14,10 @@ namespace masterFeature
         {
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.startWidth = tetherThickness;
-            lineRenderer.startColor = new Color(160, 128, 64);
-            lineRenderer.endColor = new Color(160, 128, 64);
-            Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
             grappler = GetComponentInParent<Grappler>();
         }
 
-        private void Update()
+        public void updateGrappleTether()
         {
             lineRenderer.SetPosition(0, grappler._base.anchor);
             lineRenderer.SetPosition(1, grappler.hook.transform.position);
