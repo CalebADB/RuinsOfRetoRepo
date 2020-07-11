@@ -32,7 +32,7 @@ namespace masterFeature
             setRender(false);
         }
 
-        public void updateGrapplingHook()
+        public void updateGrappler()
         {
             pullForce = Vector3.zero;
             setAnchor(new Vector3(0f,0.4f,0));

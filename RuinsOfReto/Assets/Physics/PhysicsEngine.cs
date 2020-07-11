@@ -13,9 +13,9 @@ namespace masterFeature
         public float timeDialation;
         public Gravity gravity;
 
-        private void Start()
+        private void Awake()
         {
-            gravity = this.GetComponent<Gravity>();
+            gravity = GetComponent<Gravity>();
         }
 
         private void Update()
