@@ -90,6 +90,8 @@ namespace masterFeature
             if (hasGrappler)
             {
                 grappler.hook.updateGrapplerHook();
+                grappler._base.updateGrapplerBase();
+
             }
         }
 
