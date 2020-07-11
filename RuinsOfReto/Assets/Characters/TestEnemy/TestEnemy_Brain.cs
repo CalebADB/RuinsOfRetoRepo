@@ -37,6 +37,11 @@ namespace masterFeature
                     }
                 }
             }
+            else
+            {
+                testEnemy.moveRight = false;
+                testEnemy.moveLeft = false;
+            }
         }
     }
 }
