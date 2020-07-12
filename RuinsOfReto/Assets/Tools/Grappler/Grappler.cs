@@ -42,6 +42,7 @@ namespace masterFeature
                     {
                         hook.velocity = 10 * hookLaunchSpeed * Vector3.Normalize(target.transform.position - _base.anchor);
                         grapplerState = GrapplerStates.hookOut;
+                        setRender(true);
                     }
                     break;
                 case GrapplerStates.hookOut:
@@ -49,6 +50,7 @@ namespace masterFeature
                     {
                         hook.transform.position = _base.anchor;
                         grapplerState = GrapplerStates.hookIn;
+                        setRender(false);
                     }
                     else if (hook.localCollisionManager.collisionData.horzCollision || hook.localCollisionManager.collisionData.vertCollision)
                     {
@@ -60,6 +62,7 @@ namespace masterFeature
                     {
                         hook.transform.position = _base.anchor;
                         grapplerState = GrapplerStates.hookIn;
+                        setRender(false);
                     }
                     pullForce.x = pullStrength * (hook.attachPos.x - _base.anchor.x);
                     pullForce.y = pullStrength * (hook.attachPos.y - _base.anchor.y);
@@ -70,11 +73,7 @@ namespace masterFeature
 
         private void setRender(bool render)
         {
-            SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-            {
-                spriteRenderer.enabled = render;
-            }
+            tether.GetComponent<LineRenderer>().enabled = render;
         }
     }
 }

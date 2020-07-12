@@ -31,7 +31,7 @@ namespace masterFeature
                 VirtualInputManager.Instance.button1 = true;
             }
             else { VirtualInputManager.Instance.button1 = false; };
-            VirtualInputManager.Instance.button2 = Input.GetMouseButton(1);
+            VirtualInputManager.Instance.button2 = Input.GetMouseButtonDown(1);
 
             VirtualInputManager.Instance.holdBack = Input.GetKey(KeyCode.LeftShift);
             VirtualInputManager.Instance.left = Input.GetKey(KeyCode.A);

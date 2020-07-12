@@ -51,6 +51,10 @@ namespace masterFeature
         public bool hasGrappler;
         private Grappler grappler;
 
+        // ProjectileLauncher
+        public bool hasProjectileLauncher;
+        private ProjectileLauncher projectileLauncher;
+
         private void Start()
         {
             physicsEngine = GameObject.FindObjectOfType<PhysicsEngine>();
@@ -59,12 +63,15 @@ namespace masterFeature
             {
                 grappler = this.gameObject.GetComponentInChildren<Grappler>();
             }
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher = this.gameObject.GetComponentInChildren<ProjectileLauncher>();
+            }
         }
 
         public void updateEngine()
         {
             // Setup
-                
             parentController = getController();
             frameReset();
 
@@ -72,7 +79,8 @@ namespace masterFeature
             // Calculate velocity
             updateInputVelocity();
             updateEnvVelocity();
-            velocity = envVelocity + inputVelocity;
+            float frameSpeedCorrection = 1.2f;
+            velocity = envVelocity/ frameSpeedCorrection + inputVelocity;
 
             // Calculate displacement
             displacement = velocity * Time.deltaTime;
@@ -84,7 +92,7 @@ namespace masterFeature
             surfaceVelocityCorrection();
             updateControllerImpactStrength();
             updateEnv();
-            
+
             // Displace object
             this.gameObject.transform.Translate(displacement);
             if (hasGrappler)
@@ -92,6 +100,11 @@ namespace masterFeature
                 grappler._base.updateGrapplerBase();
                 grappler.hook.updateGrapplerHook(displacement);
                 grappler.tether.updateGrappleTether();
+            }
+            this.gameObject.transform.Translate(displacement);
+            if (hasProjectileLauncher)
+            {
+;               projectileLauncher._base.updateFireArmBase();
             }
         }
 
@@ -172,6 +185,15 @@ namespace masterFeature
                     envVelocity.y += grappler.pullForce.y * Time.deltaTime;
                 }
             }
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher.updateProjectileLauncher();
+                if (projectileLauncher.weaponFired)
+                {
+                    envVelocity.x += (-projectileLauncher.recoil * Vector3.Normalize(projectileLauncher.target.transform.position - projectileLauncher._base.anchor)).x;
+                    envVelocity.y += (-projectileLauncher.recoil * Vector3.Normalize(projectileLauncher.target.transform.position - projectileLauncher._base.anchor)).y;
+                }
+            }
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
 
             if (envVelocity.magnitude > maxEnvSpeed) { envVelocity = maxEnvSpeed * envVelocity.normalized; };
@@ -216,18 +238,27 @@ namespace masterFeature
         private void updateControllerImpactStrength()
         {
             parentController.impactStrengthPercent = 0f;
+
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher.updateProjectileLauncher();
+                if (projectileLauncher.weaponFired)
+                {
+                    parentController.impactStrengthPercent += 20f;
+                }
+            }
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
                     if (parentController.rise)
                     {
-                        parentController.impactStrengthPercent += 10f;
+  //                      parentController.impactStrengthPercent += 10f;
                     }
                     break;
                 case Controller.EnvState.Air:
                     if (localCollisionManager.collisionData.bottomCollision)// vertCollision)
                     {
-                        parentController.impactStrengthPercent += 35f;
+//                        parentController.impactStrengthPercent += 20f;
                     }
                     //if (localCollisionManager.collisionData.horzCollision)
                     //{

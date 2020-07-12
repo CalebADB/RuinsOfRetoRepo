@@ -41,6 +41,7 @@ namespace masterFeature
                         gameState = GameStates.Pause;
                     }
                     player.useHook = VirtualInputManager.Instance.button1;
+                    player.useWeapon = VirtualInputManager.Instance.button2;
 
                     player.slow = VirtualInputManager.Instance.holdBack;
                     player.moveRight = VirtualInputManager.Instance.right;
