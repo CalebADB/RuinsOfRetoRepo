@@ -77,7 +77,11 @@ namespace masterFeature
 
         private void JumpStart(Vector3 jumpPoint)
         {
-            //Debug.Log("player jump");
+            Debug.Log("player jump");
+            if (MusicEngine.Instance != null)
+            {
+                MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.jumpPlayer);
+            }
         }
 
         private void HitTop(Vector3 hitPoint)
