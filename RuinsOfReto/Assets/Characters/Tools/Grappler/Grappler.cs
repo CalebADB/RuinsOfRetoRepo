@@ -40,6 +40,10 @@ namespace masterFeature
                 case GrapplerStates.hookIn:
                     if (controller.useHook)
                     {
+                        if (MusicEngine.Instance !=null)
+                        {
+                            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.HookEject);
+                        }
                         hook.velocity = 10 * hookLaunchSpeed * Vector3.Normalize(target.transform.position - _base.anchor);
                         grapplerState = GrapplerStates.hookOut;
                         setRender(true);
@@ -54,6 +58,10 @@ namespace masterFeature
                     }
                     else if (hook.localCollisionManager.collisionData.horzCollision || hook.localCollisionManager.collisionData.vertCollision)
                     {
+                        if (MusicEngine.Instance != null)
+                        {
+                            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.HookHit);
+                        }
                         grapplerState = GrapplerStates.hookAttached;
                     }
                     break;
