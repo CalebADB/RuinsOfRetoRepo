@@ -54,7 +54,7 @@ namespace masterFeature
 
         // ProjectileLauncher
         public bool hasProjectileLauncher;
-        private ProjectileLauncher projectileLauncher;
+        public ProjectileLauncher projectileLauncher;
 
 
         public delegate void JumpStart_Delegate(Vector3 jumpPoint);

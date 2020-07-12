@@ -28,6 +28,17 @@ namespace masterFeature
             controller = GetComponentInParent<Controller>();
         }
 
+        private void OnEnable()
+        {
+            target = GameObject.FindGameObjectWithTag("Cursor");
+            controller = GetComponentInParent<Controller>();
+            weaponLoaded = true;
+        }
+        private void OnDisable()
+        {
+            weaponLoaded = false;
+        }
+
         public void updateProjectileLauncher()
         {
             recoil = 2 * projectileLaunchSpeed;
