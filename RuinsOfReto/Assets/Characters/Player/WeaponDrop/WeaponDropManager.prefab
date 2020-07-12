@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6399050371337942485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6399050371337942483}
+  - component: {fileID: 6399050371337942484}
+  m_Layer: 0
+  m_Name: WeaponDropManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6399050371337942483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399050371337942485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6399050371337942484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399050371337942485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72be7908bfac915478c52632e1cd9bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponIndicatorPrefab: {fileID: 1011164101061058221, guid: c108f7df71fe39f4ca1b3dfe5f70c6fd,
+    type: 3}
+  levelWeaponDrops: {fileID: 11400000, guid: 5e2d990b374c532478ac93e87ccff758, type: 2}
+  gerenadeSprite: {fileID: -1791783992758969951, guid: 3fc1b78d9e01a864f8dd8cc1c590c6a8,
+    type: 3}
+  missleLuncherSprite: {fileID: -5890828503606760369, guid: a9252e2b0d5c23542a031502caccb93e,
+    type: 3}
+  plasmaSprite: {fileID: 5538487446649018516, guid: 67e3e4e05fdfdc545bed4f0a8beeaa48,
+    type: 3}
+  WEAPON_DROP_COLLECT_RADIUS: 3
