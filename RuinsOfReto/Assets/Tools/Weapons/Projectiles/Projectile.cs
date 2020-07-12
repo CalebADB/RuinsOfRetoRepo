@@ -40,6 +40,8 @@ namespace masterFeature
 
             if (timeLeft < 0)
             {
+                if (!explodeOnCollision)
+                    DamageAroundThisArea(8);
                 Destroy(this.gameObject);
             }
             if (localCollisionManager.collisionData.vertCollision || localCollisionManager.collisionData.horzCollision)
@@ -63,6 +65,34 @@ namespace masterFeature
                 if (localCollisionManager.collisionData.horzCollision)
                 {
                     velocity.x = -velocity.x / 2;
+                }
+            }
+        }
+
+        private void DamageAroundThisArea(float radius)
+        {
+            float angle = 0;
+            int RaysToShoot = 30;
+            for (int i = 0; i < RaysToShoot; i++)
+            {
+                float x = Mathf.Sin(angle);
+                float y = Mathf.Cos(angle);
+                angle += 2 * Mathf.PI / RaysToShoot;
+
+                Vector3 dir = new Vector3(transform.position.x + x, transform.position.y + y, 0);
+                RaycastHit hit;
+                Debug.DrawLine(transform.position, dir, Color.red);
+                if (Physics.Raycast(transform.position, dir, out hit, radius))
+                {
+                    if (hit.transform.gameObject.tag == "Enemy")
+                    {
+                        var te = hit.transform.GetComponent<Controller>();
+                        if (te != null)
+                        {
+                            te.takeDamage(damage);
+                            Debug.Log("Hit Enemy Damage!");
+                        }
+                    }
                 }
             }
         }
