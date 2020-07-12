@@ -1,94 +1,40 @@
 fileFormatVersion: 2
-guid: 2c45386d187bf5948b44495ba9fa6153
+guid: 06d1757d72e974189ac5c43251c6cd2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4257204543958041512
-    second: BROKEN BRIDGE_0
+      213: 1438670581314558916
+    second: BROKEN BRIDGE_right_0
   - first:
-      213: -3038397665401652750
-    second: BROKEN BRIDGE_1
+      213: -1065641097433406752
+    second: BROKEN BRIDGE_right_1
   - first:
-      213: -8592190655939025879
-    second: BROKEN BRIDGE_2
+      213: 3607522315872422711
+    second: BROKEN BRIDGE_right_2
   - first:
-      213: -3388763367680516158
-    second: BROKEN BRIDGE_3
+      213: 2140249046647895133
+    second: BROKEN BRIDGE_right_3
   - first:
-      213: 8719808439624887266
-    second: BROKEN BRIDGE_4
+      213: -2175576884209894085
+    second: BROKEN BRIDGE_right_4
   - first:
-      213: -5808888900293349182
-    second: BROKEN BRIDGE_5
+      213: 514899697464877893
+    second: BROKEN BRIDGE_right_5
   - first:
-      213: 8024801107259095751
-    second: BROKEN BRIDGE_6
+      213: 5291724345752925393
+    second: BROKEN BRIDGE_right_6
   - first:
-      213: -7066884165871925392
-    second: BROKEN BRIDGE_7
+      213: -2947602101118074567
+    second: BROKEN BRIDGE_right_7
   - first:
-      213: -6080856932889912973
-    second: BROKEN BRIDGE_8
+      213: -2499644620300918432
+    second: BROKEN BRIDGE_right_8
   - first:
-      213: 2371673378627713185
-    second: BROKEN BRIDGE_9
+      213: -8330297679536656041
+    second: BROKEN BRIDGE_right_9
   - first:
-      213: 3374975878896694861
-    second: BROKEN BRIDGE_10
-  - first:
-      213: -1869246323078874193
-    second: BROKEN BRIDGE_11
-  - first:
-      213: 5746192807744957008
-    second: BROKEN BRIDGE_12
-  - first:
-      213: -3933559099142319684
-    second: BROKEN BRIDGE_13
-  - first:
-      213: -3720897472635218670
-    second: BROKEN BRIDGE_14
-  - first:
-      213: 7863327990436523700
-    second: BROKEN BRIDGE_15
-  - first:
-      213: 1346251626851719714
-    second: BROKEN BRIDGE_16
-  - first:
-      213: 938840887864462176
-    second: BROKEN BRIDGE_17
-  - first:
-      213: -1744589512127298579
-    second: BROKEN BRIDGE_18
-  - first:
-      213: 9011748231842997696
-    second: BROKEN BRIDGE_19
-  - first:
-      213: -6910067012423163079
-    second: BROKEN BRIDGE_20
-  - first:
-      213: 6782407667015241933
-    second: BROKEN BRIDGE_21
-  - first:
-      213: 7478444173114987692
-    second: BROKEN BRIDGE_22
-  - first:
-      213: 4136637823843276157
-    second: BROKEN BRIDGE_23
-  - first:
-      213: -2026848213170975934
-    second: BROKEN BRIDGE_24
-  - first:
-      213: 4672892995761093859
-    second: BROKEN BRIDGE_25
-  - first:
-      213: -7800396649522925790
-    second: BROKEN BRIDGE_26
-  - first:
-      213: -1628515166228130411
-    second: BROKEN BRIDGE_27
-  - first:
-      213: 7985382033229264991
-    second: BROKEN BRIDGE_28
+      213: 4013482541932043156
+    second: BROKEN BRIDGE_right_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -151,7 +97,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -163,7 +109,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -174,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BROKEN BRIDGE_0
+      name: BROKEN BRIDGE_right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -188,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a34cc22af0a41b30800000000000000
-      internalID: 4257204543958041512
+      spriteID: 4cb1f04754f27f310800000000000000
+      internalID: 1438670581314558916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_1
+      name: BROKEN BRIDGE_right_1
       rect:
         serializedVersion: 2
         x: 32
@@ -209,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f9bb53eb6175d5d0800000000000000
-      internalID: -3038397665401652750
+      spriteID: 0e2ac6161151631f0800000000000000
+      internalID: -1065641097433406752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_2
+      name: BROKEN BRIDGE_right_2
       rect:
         serializedVersion: 2
         x: 64
@@ -230,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 924e25e2f1862c880800000000000000
-      internalID: -8592190655939025879
+      spriteID: 73bcedcce6e701230800000000000000
+      internalID: 3607522315872422711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_3
+      name: BROKEN BRIDGE_right_3
       rect:
         serializedVersion: 2
         x: 96
@@ -251,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cfdb89eba1b8f0d0800000000000000
-      internalID: -3388763367680516158
+      spriteID: d54f05c1b21b3bd10800000000000000
+      internalID: 2140249046647895133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_4
+      name: BROKEN BRIDGE_right_4
       rect:
         serializedVersion: 2
         x: 128
@@ -272,35 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb6b49839bf20970800000000000000
-      internalID: 8719808439624887266
+      spriteID: b3d3e1bb95ccec1e0800000000000000
+      internalID: -2175576884209894085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c03e4e625ea26fa0800000000000000
-      internalID: -5808888900293349182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BROKEN BRIDGE_6
+      name: BROKEN BRIDGE_right_5
       rect:
         serializedVersion: 2
         x: 32
@@ -314,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7caf65ff612dd5f60800000000000000
-      internalID: 8024801107259095751
+      spriteID: 543a95afb8a452700800000000000000
+      internalID: 514899697464877893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_7
+      name: BROKEN BRIDGE_right_6
       rect:
         serializedVersion: 2
         x: 64
@@ -335,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0770f580b426ded90800000000000000
-      internalID: -7066884165871925392
+      spriteID: 1d4b3e5714bff6940800000000000000
+      internalID: 5291724345752925393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_8
+      name: BROKEN BRIDGE_right_7
       rect:
         serializedVersion: 2
         x: 96
@@ -356,17 +281,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 379102956d47c9ba0800000000000000
-      internalID: -6080856932889912973
+      spriteID: 93189af81830817d0800000000000000
+      internalID: -2947602101118074567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_9
+      name: BROKEN BRIDGE_right_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0616f36267a7f4dd0800000000000000
+      internalID: -2499644620300918432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BROKEN BRIDGE_right_9
+      rect:
+        serializedVersion: 2
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -377,17 +323,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a8fa584f50e9e020800000000000000
-      internalID: 2371673378627713185
+      spriteID: 751f4f17566d46c80800000000000000
+      internalID: -8330297679536656041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_10
+      name: BROKEN BRIDGE_right_10
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -398,8 +344,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4636233ea256de20800000000000000
-      internalID: 3374975878896694861
+      spriteID: 49b57188b11c2b730800000000000000
+      internalID: 4013482541932043156
       vertices: []
       indices: 
       edges: []
