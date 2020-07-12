@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8990632765671350478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.34, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 8990632766577799308}
   m_RootOrder: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
     type: 3}
   loaded: {fileID: -8536849572436959590, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
   Firing: {fileID: -750083870538892842, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
-  projectileLaunchSpeed: 3
+  projectileLaunchSpeed: 1
   weaponLoadTime: 2
   weaponFired: 0
   recoil: 0

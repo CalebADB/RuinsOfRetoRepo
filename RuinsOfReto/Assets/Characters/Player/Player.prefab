@@ -118,6 +118,7 @@ MonoBehaviour:
   envVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   hasGrappler: 1
+  hasProjectileLauncher: 1
 --- !u!114 &5025841100198139410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +296,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8990632766577799309, guid: 7365742eb4130f94892ef570f1e32aa7,
+        type: 3}
+      propertyPath: projectileLaunchSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8990632766577799311, guid: 7365742eb4130f94892ef570f1e32aa7,
         type: 3}
       propertyPath: m_Name
@@ -400,6 +406,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5025841100198139438}
     m_Modifications:
+    - target: {fileID: 3978391114289682194, guid: 6c0c4847a09bd0a469740d3584e5863c,
+        type: 3}
+      propertyPath: projectileLaunchSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3978391114289682195, guid: 6c0c4847a09bd0a469740d3584e5863c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 3978391114289682196, guid: 6c0c4847a09bd0a469740d3584e5863c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0c4847a09bd0a469740d3584e5863c, type: 3}

@@ -212,8 +212,8 @@ namespace masterFeature
                 projectileLauncher.updateProjectileLauncher();
                 if (projectileLauncher.weaponFired)
                 {
-                    envVelocity.x += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x);
-                    envVelocity.y += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y);
+                    envVelocity.x += -projectileLauncher.recoil * 10 *(projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x) *Time.deltaTime;
+                    envVelocity.y += -projectileLauncher.recoil * 10 * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y) * Time.deltaTime;
                 }
             }
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
