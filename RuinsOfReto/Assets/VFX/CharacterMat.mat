@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewMat
+  m_Name: CharacterMat
   m_Shader: {fileID: -6465566751694194690, guid: 30ca080d43195e444a7211e8d8d43788,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -25,6 +25,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Death: 1
+    - _DeathGlow: 1
     - _Fade: 1
-    - _Scale: 200
-    m_Colors: []
+    - _Scale: 50
+    m_Colors:
+    - _Color: {r: 1, g: 0.75686276, b: 0.23137255, a: 0}

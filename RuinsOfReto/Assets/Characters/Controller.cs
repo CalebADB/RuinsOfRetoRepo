@@ -174,6 +174,11 @@ namespace masterFeature
             if (health <= 0)
             {
                 dying = true;
+                VFXManager.Instance.StartEnemyDeathVFX(gameObject, () =>
+                {
+                    dying = false;
+                    // Reset The Level ();
+                });
             }
         }
         public void die()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6529064167181682046}
   - component: {fileID: 6529064167181682047}
   m_Layer: 0
-  m_Name: VFXManager
+  m_Name: VFXManagerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,3 +49,6 @@ MonoBehaviour:
     type: 3}
   hitLeftRightPrefab: {fileID: 5776422008779540834, guid: 72693fcdb87d13846811518d848520a7,
     type: 3}
+  speed1: 0
+  speed2: 1
+  playerRenderer: {fileID: 0}
