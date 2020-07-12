@@ -173,6 +173,7 @@ public class MusicEngine : MonoBehaviour
 
     }
 
+
     public void Play_MusicSituation(Music_Situation music_Situation)
     {
         switch (music_Situation)
@@ -231,6 +232,15 @@ public class MusicEngine : MonoBehaviour
         }
     }
 
+    public void PlaySFX(AudioClip clip)
+    {
+        sfx_AudioSource.clip = clip;
+        sfx_AudioSource.Play();
+    }
+
+
+
+
     private void StartFadein_Music1()
     {
         music1_timePassed_Fade = 0;
@@ -276,8 +286,6 @@ public class MusicEngine : MonoBehaviour
 
         music2_fadeType = FadeType.Fadeout_Music;
     }
-
-
 
     private void ResetAudioSource_Music1()
     {
