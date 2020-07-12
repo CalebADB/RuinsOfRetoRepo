@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   explodeOnCollision: 1
-  damage: 2
+  damage: 1
   timer: 4
   impactEffectPrefab: {fileID: 0}
 --- !u!61 &7111916437814388654

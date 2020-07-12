@@ -46,6 +46,7 @@ namespace masterFeature
 
         // final displacement
         private Vector2 displacement;
+        public bool dontfollowGravity;
 
         // Misc:
         // GrapplingHook
@@ -217,7 +218,10 @@ namespace masterFeature
                     envVelocity.y += -projectileLauncher.recoil * 10 * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y) * Time.deltaTime;
                 }
             }
-            envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
+            if (!dontfollowGravity)
+            { envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
+            }
+            
 
             if (envVelocity.magnitude > maxEnvSpeed) { envVelocity = maxEnvSpeed * envVelocity.normalized; };
         }
