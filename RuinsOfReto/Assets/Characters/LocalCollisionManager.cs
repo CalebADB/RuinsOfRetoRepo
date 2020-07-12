@@ -205,12 +205,16 @@ namespace masterFeature
             public bool rightCollision;
             public bool leftCollision;
             public float horzCollisionDistance;
+            public Vector3 rightCollisionPos;
+            public Vector3 leftCollisionPos;
 
             // Vertical info
             public bool vertCollision;
             public bool topCollision;
             public bool bottomCollision;
             public float vertCollisionDistance;
+            public Vector3 topCollisionPos;
+            public Vector3 bottomCollisionPos;
 
             public Collider2D collidedObject;
         }
