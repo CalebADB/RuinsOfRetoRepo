@@ -30,8 +30,10 @@ namespace masterFeature
 
         private void Start()
         {
+            Debug.Log(collider);
             collider = this.GetComponent<BoxCollider2D>();
             calculateRaySpacing();
+            Debug.Log(collider);
         }
 
         private void calculateRaySpacing()
@@ -46,8 +48,8 @@ namespace masterFeature
             vertRayCount = Mathf.Clamp(vertRayCount, 2, int.MaxValue);
 
             // caleculate ray spacing
-            horzRaySpacing = bounds.size.y / (horzRayCount - 1);
-            vertRaySpacing = bounds.size.x / (vertRayCount - 1);
+            horzRaySpacing = (bounds.size.y + (skinWidth * -2)) / (horzRayCount - 1);
+            vertRaySpacing = (bounds.size.x + (skinWidth * -2)) / (vertRayCount - 1);
         }
 
         /// <summary>
@@ -65,8 +67,8 @@ namespace masterFeature
 
             // CHECK to see if the object will collide
             updateRaycastOrigins();
-            checkHorzCollision(displacement);
             checkVertCollision(displacement);
+            checkHorzCollision(displacement);
 
             // IF object will collide THEN we calculate and return that distance
             if (collisionData.horzCollision || collisionData.vertCollision)
@@ -95,14 +97,53 @@ namespace masterFeature
         }
 
         /// <summary>
+        /// Checks for Vertical collisions in the direction of travel.
+        /// </summary>
+        private void checkVertCollision(Vector2 displacement)
+        {
+            // SETS parameters for raycasting
+            Vector2 direction = Vector2.up * Mathf.Sign(displacement.y);
+            float rayLength = (displacement.y * -1) + (skinWidth);
+
+            // CHECKS each raycast
+            for (int i = 0; i < vertRayCount; i++)
+            {
+                rayOrigin = (direction.y == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
+                rayOrigin.x += (vertRaySpacing * i) + skinWidth;
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, rayLength, collisionMask);
+
+                // IF a raycast encounters an object THEN collisionData is updated
+                if (hit)
+                {
+                    collisionData.collidedObject = hit.collider; 
+                    collisionData.vertCollision = true;
+                    rayLength = hit.distance;
+                    if (direction.y > 0)
+                    {
+                        collisionData.topCollision = true;
+                        collisionData.topCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
+                    }
+                    else
+                    {
+                        collisionData.bottomCollision = true;
+                        collisionData.bottomCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
+                    }
+                }
+                Debug.DrawRay(rayOrigin, direction * rayLength * debugRayMultiplier, Color.magenta);
+            }
+            collisionData.vertCollisionDistance = (rayLength - skinWidth) * direction.y;
+        }
+
+        /// <summary>
         /// Checks for horizontal collisions in the direction of travel.
         /// </summary>
         private void checkHorzCollision(Vector2 displacement)
         {
             // SETS parameters for raycasting
             Vector2 direction = Vector2.right * Mathf.Sign(displacement.x);
-            float rayLength = Mathf.Abs(displacement.x) + skinWidth;
+            float rayLength = Mathf.Abs(displacement.x);
             rayOrigin = (direction.x == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+            rayOrigin.y += skinWidth;
 
             // CHECKS each raycast
             for (int i = 0; i < horzRayCount; i++)
@@ -112,15 +153,18 @@ namespace masterFeature
                 // IF a raycast encounters an object THEN collisionData is updated
                 if (hit)
                 {
+                    collisionData.collidedObject = hit.collider;
                     collisionData.horzCollision = true;
                     rayLength = hit.distance;
                     if (direction.x > 0)
                     {
                         collisionData.rightCollision = true;
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                     else
                     {
                         collisionData.leftCollision = true;
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
 
@@ -131,45 +175,11 @@ namespace masterFeature
         }
 
         /// <summary>
-        /// Checks for Vertical collisions in the direction of travel.
-        /// </summary>
-        private void checkVertCollision(Vector2 displacement)
-        {
-            // SETS parameters for raycasting
-            Vector2 direction = Vector2.up * Mathf.Sign(displacement.y);
-            float rayLength = (displacement.y * -1) + skinWidth;
-
-            // CHECKS each raycast
-            for (int i = 0; i < vertRayCount; i++)
-            {
-                rayOrigin = (direction.y == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
-                rayOrigin += Vector2.right * (vertRaySpacing * i);
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, rayLength, collisionMask);
-
-                // IF a raycast encounters an object THEN collisionData is updated
-                if (hit)
-                {
-                    collisionData.vertCollision = true;
-                    rayLength = hit.distance;
-                    if (direction.y > 0)
-                    {
-                        collisionData.topCollision = true;
-                    }
-                    else
-                    {
-                        collisionData.bottomCollision = true;
-                    }
-                }
-                Debug.DrawRay(rayOrigin, direction * rayLength * debugRayMultiplier, Color.magenta);
-            }
-            collisionData.vertCollisionDistance = (rayLength - skinWidth) * direction.y;
-        }
-        
-        /// <summary>
         /// Calculates new displacement using collisionData
         /// </summary>
         public Vector2 getCollisionDisplacement(Vector2 displacement)
         {
+            Debug.Log(displacement);
             if (collisionData.horzCollision)
             {
                 displacement.x = collisionData.horzCollisionDistance;
@@ -178,7 +188,14 @@ namespace masterFeature
             {
                 displacement.y = collisionData.vertCollisionDistance;
             }
-
+            if (Mathf.Abs(displacement.y) < 0.01)
+            {
+                displacement.y = 0;
+            }
+            if (Mathf.Abs(displacement.x) < 0.01)
+            {
+                displacement.x = 0;
+            }
             return displacement;
         }
 
@@ -192,13 +209,18 @@ namespace masterFeature
             public bool rightCollision;
             public bool leftCollision;
             public float horzCollisionDistance;
+            public Vector3 rightCollisionPos;
+            public Vector3 leftCollisionPos;
 
             // Vertical info
             public bool vertCollision;
             public bool topCollision;
             public bool bottomCollision;
             public float vertCollisionDistance;
-            
+            public Vector3 topCollisionPos;
+            public Vector3 bottomCollisionPos;
+
+            public Collider2D collidedObject;
         }
 
         private struct RaycastOrigins

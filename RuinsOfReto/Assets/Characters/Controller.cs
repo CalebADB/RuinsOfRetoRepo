@@ -2,19 +2,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace masterFeature
 {
     [RequireComponent(typeof(LocalPhysicsEngine), typeof(Animator))]//,typeof(LocalSoundEngine) 
-    public class Controller : MonoBehaviour
+    public abstract class Controller : MonoBehaviour
     {
+        // GameData:
+        // Combat
+        public int health;
+        public float deathTimeLength;
+        public bool canRespawn;
+        public Vector3 spawn; 
+        private float deathTimeCur; 
+        private bool dying;
+
+
         // Physics:
         // Prep
         public LocalPhysicsEngine localPhysicsEngine;
 
         // Input
         public bool pause;
+
         public bool useHook;
+        public bool useWeapon;
+
+        public bool slow;
+
         public bool moveRight;
         public bool moveLeft;
         public bool rise;
@@ -43,23 +59,59 @@ namespace masterFeature
         // HashCodes
         public AnimatorHashCodes animatorHashCodes;
 
-        private void Start()
-        {
-            start();
-        }
-
         public void start()
         {
             getLocalPhysicsEngine();
             animator = getAnimator();
             animatorHashCodes = GameObject.FindObjectOfType<AnimatorHashCodes>();
+
+            localPhysicsEngine.JumpStart_Event += JumpStart;
+            localPhysicsEngine.HitTop_Event += HitTop;
+            localPhysicsEngine.HitBottom_Event += HitBottom;
+            localPhysicsEngine.HitRight_Event += HitRight;
+            localPhysicsEngine.HitLeft_Event += HitLeft;
+        }
+
+        private void JumpStart(Vector3 jumpPoint)
+        {
+            Debug.Log("player jump");
+        }
+
+        private void HitTop(Vector3 hitPoint)
+        {
+            VFXManager.Instance.StartHitTopVFX(hitPoint);
+        }
+
+        private void HitBottom(Vector3 hitPoint, bool isMoving)
+        {
+            VFXManager.Instance.StartHitBottomVFX(hitPoint, isMoving);
+        }
+
+        private void HitRight(Vector3 hitPoint)
+        {
+            VFXManager.Instance.StartHitRightVFX(hitPoint);
+        }
+
+        private void HitLeft(Vector3 hitPoint)
+        {
+            VFXManager.Instance.StartHitLeftVFX(hitPoint);
         }
 
         private void Update()
         {
-            // Physics
+            update();
+        }
+
+        public void update()
+        {
             if (!pause)
             {
+                if (dying)
+                {
+                    die();
+                }
+
+                // Physics
                 localPhysicsEngine.updateEngine();
             }
 
@@ -114,6 +166,30 @@ namespace masterFeature
             else if (!moveRight && moveLeft)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+        public void takeDamage(int damage = 1)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                dying = true;
+            }
+        }
+        public void die()
+        {
+            deathTimeCur += Time.deltaTime;
+            if (deathTimeCur > deathTimeLength)
+            {
+                if (canRespawn)
+                {
+                    transform.position = spawn;
+                    localPhysicsEngine.envVelocity = Vector2.zero;
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }

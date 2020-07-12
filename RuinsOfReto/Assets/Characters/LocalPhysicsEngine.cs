@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace masterFeature
 {
@@ -51,6 +52,26 @@ namespace masterFeature
         public bool hasGrappler;
         private Grappler grappler;
 
+        // ProjectileLauncher
+        public bool hasProjectileLauncher;
+        private ProjectileLauncher projectileLauncher;
+
+
+        public delegate void JumpStart_Delegate(Vector3 jumpPoint);
+        public JumpStart_Delegate JumpStart_Event;
+
+        public delegate void HitTop_Delegate(Vector3 hitPoint);
+        public HitTop_Delegate HitTop_Event;
+
+        public delegate void HitBottom_Delegate(Vector3 hitPoint, bool isMoving);
+        public HitBottom_Delegate HitBottom_Event;
+
+        public delegate void HitLeft_Delegate(Vector3 hitPoint);
+        public HitLeft_Delegate HitLeft_Event;
+
+        public delegate void HitRight_Delegate(Vector3 hitPoint);
+        public HitRight_Delegate HitRight_Event;
+
         private void Start()
         {
             physicsEngine = GameObject.FindObjectOfType<PhysicsEngine>();
@@ -59,12 +80,15 @@ namespace masterFeature
             {
                 grappler = this.gameObject.GetComponentInChildren<Grappler>();
             }
-        }
 
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher = this.gameObject.GetComponentInChildren<ProjectileLauncher>();
+            }
+        }
         public void updateEngine()
         {
             // Setup
-                
             parentController = getController();
             frameReset();
 
@@ -72,7 +96,8 @@ namespace masterFeature
             // Calculate velocity
             updateInputVelocity();
             updateEnvVelocity();
-            velocity = envVelocity + inputVelocity;
+            float frameSpeedCorrection = 1.2f;
+            velocity = envVelocity / frameSpeedCorrection + inputVelocity;
 
             // Calculate displacement
             displacement = velocity * Time.deltaTime;
@@ -83,13 +108,20 @@ namespace masterFeature
             // Post displacement reactions
             surfaceVelocityCorrection();
             updateControllerImpactStrength();
+            detectHit();
             updateEnv();
             
             // Displace object
             this.gameObject.transform.Translate(displacement);
             if (hasGrappler)
             {
-                grappler.hook.updateGrapplerHook();
+                grappler._base.updateGrapplerBase();
+                grappler.hook.updateGrapplerHook(displacement);
+                grappler.tether.updateGrappleTether();
+            }
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher._base.updateFireArmBase();
             }
         }
 
@@ -122,10 +154,11 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    setStateSpeed(SpeedXs.run, SpeedYs.zero);
+                    if (parentController.slow) { setStateSpeed(SpeedXs.walk, SpeedYs.zero); }
+                    else { setStateSpeed(SpeedXs.run, SpeedYs.zero); };
                     break;
                 case Controller.EnvState.Air:
-                    setStateSpeedY(SpeedYs.rise);
+                    setStateSpeed(SpeedXs.air, SpeedYs.rise);
                     break;
                 default:
                     Debug.Log("Enviroment Definition Missing");
@@ -153,7 +186,12 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    // wind?
+                    if (parentController.rise) { envVelocity.y += (stateSpeed.y / 4) * Time.deltaTime; }
+                    if (parentController.moveRight ^ parentController.moveLeft)
+                    {
+                        if (parentController.moveRight) { envVelocity.x += (stateSpeed.x / 4) * Time.deltaTime; }
+                        else { envVelocity.x += -(stateSpeed.x / 4) * Time.deltaTime; }
+                    }
                     break;
                 default:
                     Debug.Log("Enviroment Missing");
@@ -169,6 +207,15 @@ namespace masterFeature
                     envVelocity.y += grappler.pullForce.y * Time.deltaTime;
                 }
             }
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher.updateProjectileLauncher();
+                if (projectileLauncher.weaponFired)
+                {
+                    envVelocity.x += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x);
+                    envVelocity.y += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y);
+                }
+            }
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
 
             if (envVelocity.magnitude > maxEnvSpeed) { envVelocity = maxEnvSpeed * envVelocity.normalized; };
@@ -176,32 +223,34 @@ namespace masterFeature
 
         private void surfaceVelocityCorrection()
         {
-            if (Mathf.Abs(envVelocity.x) < 0.05)
-            {
-                envVelocity.x = 0;
-            }
-            else if (localCollisionManager.collisionData.topCollision)
-            {
-                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
-            }
-            else if (localCollisionManager.collisionData.bottomCollision)
-            {
-                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (10 * Time.deltaTime));
-            }
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
+                    if (Mathf.Abs(envVelocity.x) < 0.1)
+                    {
+                        envVelocity.x = 0;
+                    }
+                    else if (parentController.drop)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
+                    }
+                    else if (localCollisionManager.collisionData.bottomCollision)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (15 * Time.deltaTime));
+                    }
+
                     if (localCollisionManager.collisionData.horzCollision)
                     {
-                        envVelocity.x = -envVelocity.x / 8;
+                        envVelocity.x = 0;
                     }
                     break;
                 case Controller.EnvState.Air:
                     if (localCollisionManager.collisionData.topCollision)
                     {
                         envVelocity.y = -inputVelocity.y;
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (1 * Time.deltaTime));
                     }
-                    if (localCollisionManager.collisionData.horzCollision)
+                    else if (localCollisionManager.collisionData.horzCollision)
                     {
                         envVelocity.x = -envVelocity.x/4;
                     }
@@ -214,20 +263,61 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    if (parentController.rise)
+                    break;
+                case Controller.EnvState.Air:
+                    break;
+                default:
+                    Debug.Log("Enviroment Missing");
+                    break;
+            }
+        }
+        private void detectHit()
+        {
+            switch (parentController.env)
+            {
+                case Controller.EnvState.Ground:
+                    if (parentController.rise || !localCollisionManager.collisionData.bottomCollision)
                     {
-                        parentController.impactStrengthPercent += 10f;
+                        JumpStart_Event?.Invoke(Vector3.zero);
+                    }
+                    if (envVelocity.x > 0.5 || parentController.moveRight)
+                    {
+                        HitBottom_Event?.Invoke(localCollisionManager.collisionData.bottomCollisionPos + Vector3.left * (0.2f + 0.1f), true);
+                    }
+                    if (envVelocity.x < -0.5 || parentController.moveLeft)
+                    {
+                        HitBottom_Event?.Invoke(localCollisionManager.collisionData.bottomCollisionPos + Vector3.left * (0.2f - 0.1f), true);
+                    }
+                    if (localCollisionManager.collisionData.topCollision)
+                    {
+                        HitTop_Event?.Invoke(localCollisionManager.collisionData.topCollisionPos);
+                    }
+                    if (localCollisionManager.collisionData.rightCollision)
+                    {
+                        HitRight_Event?.Invoke(localCollisionManager.collisionData.rightCollisionPos);
+                    }
+                    if (localCollisionManager.collisionData.leftCollision)
+                    {
+                        HitLeft_Event?.Invoke(localCollisionManager.collisionData.leftCollisionPos);
                     }
                     break;
                 case Controller.EnvState.Air:
-                    if (localCollisionManager.collisionData.bottomCollision)// vertCollision)
+                    if (localCollisionManager.collisionData.topCollision)
                     {
-                        parentController.impactStrengthPercent += 35f;
+                        HitTop_Event?.Invoke(localCollisionManager.collisionData.topCollisionPos);
                     }
-                    //if (localCollisionManager.collisionData.horzCollision)
-                    //{
-                    //    parentController.impactStrengthPercent += 25f;
-                    //}
+                    if (localCollisionManager.collisionData.bottomCollision)
+                    {
+                        HitBottom_Event?.Invoke(localCollisionManager.collisionData.bottomCollisionPos + Vector3.left * 0.2f, false);
+                    }
+                    if (localCollisionManager.collisionData.rightCollision)
+                    {
+                        HitRight_Event?.Invoke(localCollisionManager.collisionData.rightCollisionPos);
+                    }
+                    if (localCollisionManager.collisionData.leftCollision)
+                    {
+                        HitLeft_Event?.Invoke(localCollisionManager.collisionData.leftCollisionPos);
+                    }
                     break;
                 default:
                     Debug.Log("Enviroment Missing");
@@ -262,5 +352,9 @@ namespace masterFeature
             inputVelocity.Set(0f, 0f);
             displacement.Set(0f, 0f);
         }
+
+        private void StartOffGround(Vector3 jumpPoint) { }
+
+        private void HitGround(Vector3 hitPoint) { }
     }
 }
