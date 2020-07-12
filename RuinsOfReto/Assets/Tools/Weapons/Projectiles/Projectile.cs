@@ -38,7 +38,6 @@ namespace masterFeature
 
             rb.velocity = velocity;
 
-            Debug.Log(localCollisionManager);
             if (timeLeft < 0)
             {
                 Destroy(this.gameObject);

@@ -26,6 +26,8 @@ namespace masterFeature
 
             // Check to initiate Move
             checkToMove(animator, controller, stateBase.getAnimatorHashCodes());
+
+            checkToDrop(animator, controller, stateBase.getAnimatorHashCodes());
         }
 
         public override void exitState(StateBase stateBase, Animator animator, AnimatorStateInfo stateInfo)

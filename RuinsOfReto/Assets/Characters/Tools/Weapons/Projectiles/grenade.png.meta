@@ -114,10 +114,10 @@ TextureImporter:
       name: grenade_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 9.25
-        height: 11
+        x: 1
+        y: 3
+        width: 7
+        height: 7
       alignment: 9
       pivot: {x: 0.32432434, y: 0.54545456}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -154,7 +154,8 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    if (parentController.slow) { setStateSpeed(SpeedXs.walk, SpeedYs.zero); }
+                    if (parentController.drop) { setStateSpeed(SpeedXs.slide, SpeedYs.zero); }
+                    else if (parentController.slow) { setStateSpeed(SpeedXs.walk, SpeedYs.zero); }
                     else { setStateSpeed(SpeedXs.run, SpeedYs.zero); };
                     break;
                 case Controller.EnvState.Air:
@@ -212,8 +213,8 @@ namespace masterFeature
                 projectileLauncher.updateProjectileLauncher();
                 if (projectileLauncher.weaponFired)
                 {
-                    envVelocity.x += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x);
-                    envVelocity.y += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y);
+                    envVelocity.x += -projectileLauncher.recoil * 10 *(projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x) *Time.deltaTime;
+                    envVelocity.y += -projectileLauncher.recoil * 10 * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y) * Time.deltaTime;
                 }
             }
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
@@ -232,7 +233,7 @@ namespace masterFeature
                     }
                     else if (parentController.drop)
                     {
-                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (3 * Time.deltaTime));
                     }
                     else if (localCollisionManager.collisionData.bottomCollision)
                     {

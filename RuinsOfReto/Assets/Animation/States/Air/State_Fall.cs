@@ -20,7 +20,9 @@ namespace masterFeature
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
         public override void updateState(StateBase stateBase, Animator animator, AnimatorStateInfo stateInfo)
         {
+            Controller controller = stateBase.getController(animator);
 
+            checkToDrop(animator, controller, stateBase.getAnimatorHashCodes());
         }
 
         public override void exitState(StateBase stateBase, Animator animator, AnimatorStateInfo stateInfo)

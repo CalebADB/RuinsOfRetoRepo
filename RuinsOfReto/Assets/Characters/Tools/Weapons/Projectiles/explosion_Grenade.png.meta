@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 67e3e4e05fdfdc545bed4f0a8beeaa48
+guid: c847b044fce6de844bf190ae98c74015
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5538487446649018516
-    second: plasma_0
+      213: -101534729393584512
+    second: explosion_Grenade_0
   - first:
-      213: -855238612454825175
-    second: plasma_1
+      213: -1970189320778228216
+    second: explosion_Grenade_1
   - first:
-      213: 5097770209480443819
-    second: plasma_2
+      213: 1472108252438098189
+    second: explosion_Grenade_2
   - first:
-      213: -7899140392411068322
-    second: plasma_3
+      213: 7207652426131403667
+    second: explosion_Grenade_3
+  - first:
+      213: -8732484114466883970
+    second: explosion_Grenade_4
+  - first:
+      213: 3064309741369935568
+    second: explosion_Grenade_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,17 +101,41 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plasma_0
+      name: explosion_Grenade_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 9.25
-        height: 7
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49899721df8acdc40800000000000000
-      internalID: 5538487446649018516
+      spriteID: 086412a93b6479ef0800000000000000
+      internalID: -101534729393584512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plasma_1
+      name: explosion_Grenade_1
       rect:
         serializedVersion: 2
-        x: 9
+        x: 32
         y: 0
-        width: 9.25
-        height: 7
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 923ae6263059124f0800000000000000
-      internalID: -855238612454825175
+      spriteID: 80edeb2504b78a4e0800000000000000
+      internalID: -1970189320778228216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plasma_2
+      name: explosion_Grenade_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 64
         y: 0
-        width: 9.25
-        height: 7
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba786a21ffaeeb640800000000000000
-      internalID: 5097770209480443819
+      spriteID: d017e71f7aafd6410800000000000000
+      internalID: 1472108252438098189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plasma_3
+      name: explosion_Grenade_3
       rect:
         serializedVersion: 2
-        x: 27
+        x: 96
         y: 0
-        width: 9.25
-        height: 7
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +206,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e58066f1aad906290800000000000000
-      internalID: -7899140392411068322
+      spriteID: 3937b0c91b9b60460800000000000000
+      internalID: 7207652426131403667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_Grenade_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76b57ee6fbffc680800000000000000
+      internalID: -8732484114466883970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_Grenade_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6cf10797d968a20800000000000000
+      internalID: 3064309741369935568
       vertices: []
       indices: 
       edges: []

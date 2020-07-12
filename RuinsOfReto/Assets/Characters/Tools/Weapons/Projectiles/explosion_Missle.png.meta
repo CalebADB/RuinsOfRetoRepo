@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 01ceaecde18e06643980fa0f43f81dad
+guid: e142c9da6cb7946459a12277dfed9064
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8673471921446917547
-    second: ProjectileBarrel_0
+      213: -6227733420483732450
+    second: explosion_Missle_0
   - first:
-      213: -2881789917335650502
-    second: ProjectileBarrel_1
+      213: 1243635129978587712
+    second: explosion_Missle_1
   - first:
-      213: -688722771951713173
-    second: ProjectileBarrel_2
+      213: -8831260517027865457
+    second: explosion_Missle_2
   - first:
-      213: 8731303122417289037
-    second: ProjectileBarrel_3
+      213: -8228921979379772448
+    second: explosion_Missle_3
   - first:
-      213: -765368952405655973
-    second: ProjectileBarrel_4
+      213: -6891432336617387706
+    second: explosion_Missle_4
   - first:
-      213: 5137653014582353529
-    second: ProjectileBarrel_5
-  - first:
-      213: -7344918323093491330
-    second: ProjectileBarrel_6
-  - first:
-      213: -8536849572436959590
-    second: ProjectileBarrel_7
-  - first:
-      213: -750083870538892842
-    second: ProjectileBarrel_8
+      213: -7975980634473023534
+    second: explosion_Missle_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -70,9 +61,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 4
-  spritePivot: {x: 0, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,7 +118,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,190 +129,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ProjectileBarrel_0
+      name: explosion_Missle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ae4d0dd33a1a780800000000000000
-      internalID: -8673471921446917547
+      spriteID: e1c1d343375a299a0800000000000000
+      internalID: -6227733420483732450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProjectileBarrel_1
+      name: explosion_Missle_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 24
-        width: 10
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ff7eba653d108d0800000000000000
-      internalID: -2881789917335650502
+      spriteID: 04a0298cf87424110800000000000000
+      internalID: 1243635129978587712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProjectileBarrel_2
+      name: explosion_Missle_2
       rect:
         serializedVersion: 2
-        x: 18
-        y: 24
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b648815b94a2176f0800000000000000
-      internalID: -688722771951713173
+      spriteID: f8c1f9b895f017580800000000000000
+      internalID: -8831260517027865457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProjectileBarrel_3
+      name: explosion_Missle_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 14
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4701fdede1db2970800000000000000
-      internalID: 8731303122417289037
+      spriteID: 0e31aa6fe0ffccd80800000000000000
+      internalID: -8228921979379772448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProjectileBarrel_4
+      name: explosion_Missle_4
       rect:
         serializedVersion: 2
-        x: 9
-        y: 14
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e7fbd2efcd065f0800000000000000
-      internalID: -765368952405655973
+      spriteID: 649c74e5dc6bc50a0800000000000000
+      internalID: -6891432336617387706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ProjectileBarrel_5
+      name: explosion_Missle_5
       rect:
         serializedVersion: 2
-        x: 18
-        y: 14
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97e5561423c9c4740800000000000000
-      internalID: 5137653014582353529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProjectileBarrel_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7131cf33bb911a90800000000000000
-      internalID: -7344918323093491330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProjectileBarrel_7
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 4
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9e13f54b84078980800000000000000
-      internalID: -8536849572436959590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProjectileBarrel_8
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 4
-        width: 9
-        height: 6
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d977c0a1ba2795f0800000000000000
-      internalID: -750083870538892842
+      spriteID: 2d737da1fdf9f4190800000000000000
+      internalID: -7975980634473023534
       vertices: []
       indices: 
       edges: []
