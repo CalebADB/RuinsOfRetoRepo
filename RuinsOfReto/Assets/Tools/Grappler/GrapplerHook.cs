@@ -29,7 +29,7 @@ namespace masterFeature
             switch (grappler.grapplerState)
             {
                 case (Grappler.GrapplerStates.hookIn):
-                    
+                    Debug.Log("running");
                     rb.rotation = -grappler._base.angle;
                     this.gameObject.transform.position = grappler._base.anchor;
                     break;

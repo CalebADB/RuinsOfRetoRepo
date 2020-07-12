@@ -89,7 +89,6 @@ namespace masterFeature
         public void updateEngine()
         {
             // Setup
-                
             parentController = getController();
             frameReset();
 
@@ -208,13 +207,13 @@ namespace masterFeature
                     envVelocity.y += grappler.pullForce.y * Time.deltaTime;
                 }
             }
-            if (hasGrappler)
+            if (hasProjectileLauncher)
             {
-                grappler.updateGrappler();
-                if (grappler.grapplerState == Grappler.GrapplerStates.hookAttached)
+                projectileLauncher.updateProjectileLauncher();
+                if (projectileLauncher.weaponFired)
                 {
-                    envVelocity.x += grappler.pullForce.x * Time.deltaTime;
-                    envVelocity.y += grappler.pullForce.y * Time.deltaTime;
+                    envVelocity.x += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x);
+                    envVelocity.y += -projectileLauncher.recoil * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y);
                 }
             }
             envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
