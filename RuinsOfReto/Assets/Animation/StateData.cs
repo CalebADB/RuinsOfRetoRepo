@@ -35,14 +35,24 @@ namespace masterFeature
         public void checkToFall(Animator animator, Controller controller, AnimatorHashCodes animatorHashCodes)
         {
             // checks for upward/rise/jump input
-            if (!controller.localPhysicsEngine.localCollisionManager.collisionData.bottomCollision)
+            if (!controller.localPhysicsEngine.localCollisionManager.collisionData.bottomCollision && controller.localPhysicsEngine.localCollisionManager.collisionData.vertCollisionDistance < 0.1)
             {
                 animator.SetBool(animatorHashCodes.collidedDown, false);
             }
         }
         public void checkToDrop(Animator animator, Controller controller, AnimatorHashCodes animatorHashCodes)
         {
-            Debug.Log("Im an empty function:)");
+            if (controller.drop)
+            {
+                animator.SetBool(animatorHashCodes.dropping, true);
+            }
+        }
+        public void checkToStand(Animator animator, Controller controller, AnimatorHashCodes animatorHashCodes)
+        {
+            if (!controller.drop)
+            {
+                animator.SetBool(animatorHashCodes.dropping, false);
+            }
         }
         public void checkToIdle(Animator animator, Controller controller, AnimatorHashCodes animatorHashCodes)
         {

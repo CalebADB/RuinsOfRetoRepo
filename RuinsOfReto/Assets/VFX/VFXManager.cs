@@ -37,7 +37,6 @@ public class VFXManager : MonoBehaviour
 
     public void StartHitBottomVFX(Vector3 pos, bool isMoving)
     {
-        Debug.Log("HitBottom");
         GameObject landingVFXGO = ObjectPool.Spawn((isMoving) ? movingTrailPrefab : landingPrefab, pos);
         //landingPrefab.transform.parent = transform;
         landingVFXGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -48,7 +47,7 @@ public class VFXManager : MonoBehaviour
 
     public void StartHitLeftVFX(Vector3 pos)
     {
-        Debug.Log("HitLeft");
+        //Debug.Log("HitLeft");
         GameObject landingVFXGO = ObjectPool.Spawn(hitLeftRightPrefab, pos);
         //landingPrefab.transform.parent = transform;
         landingVFXGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
@@ -59,7 +58,7 @@ public class VFXManager : MonoBehaviour
 
     public void StartHitRightVFX(Vector3 pos)
     {
-        Debug.Log("HitRight");
+        //Debug.Log("HitRight");
         GameObject landingVFXGO = ObjectPool.Spawn(hitLeftRightPrefab, pos);
         //landingPrefab.transform.parent = transform;
         landingVFXGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));

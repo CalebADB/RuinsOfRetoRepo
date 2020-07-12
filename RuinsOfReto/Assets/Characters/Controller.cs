@@ -74,7 +74,7 @@ namespace masterFeature
 
         private void JumpStart(Vector3 jumpPoint)
         {
-            Debug.Log("player jump");
+            //Debug.Log("player jump");
         }
 
         private void HitTop(Vector3 hitPoint)

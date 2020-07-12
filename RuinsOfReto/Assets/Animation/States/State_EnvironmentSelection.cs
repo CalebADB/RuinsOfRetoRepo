@@ -17,7 +17,6 @@ namespace masterFeature
 
         public override void updateState(StateBase stateBase, Animator animator, AnimatorStateInfo stateInfo)
         {
-            Debug.Log("run");
             Controller controller = stateBase.getController(animator);
             animator.SetInteger(stateBase.getAnimatorHashCodes().environment, controller.env.GetHashCode());
         }

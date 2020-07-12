@@ -87,7 +87,7 @@ MonoBehaviour:
     _HashCodes: 01000000020000000300000004000000050000000600000000000000
     _Next: ffffffffffffffffffffffffffffffffffffffffffffffff00000000
     _Count: 6
-    _Version: 30
+    _Version: 31
     _FreeList: -1
     _FreeCount: 0
     _Keys: 01000000020000000300000004000000050000000600000000000000
@@ -95,7 +95,7 @@ MonoBehaviour:
     - 0
     - 2
     - 3.5
-    - 0.5
+    - 1
     - 2.5
     - 2
     - 0
