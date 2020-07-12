@@ -572,5 +572,5 @@ MonoBehaviour:
   buttonBack: {fileID: 8300000, guid: f6cc6b8a4e36339418da596e761f43b4, type: 3}
   buttonClick: {fileID: 8300000, guid: 19bedfcdf99277944932193c17e3f9a0, type: 3}
   playerJump: {fileID: 8300000, guid: 4c688a8af21ce5b41b481ca1091bfaf9, type: 3}
-  hookEject: {fileID: 8300000, guid: 6d8bc008d2e246646b8b5fd3daa7ef47, type: 3}
-  hookHit: {fileID: 8300000, guid: 1565d1dd41b831a4aad5f89fafb307e8, type: 3}
+  hookEject: {fileID: 8300000, guid: 0db70725eabb3c3488ff9d939ca48f16, type: 3}
+  hookHit: {fileID: 8300000, guid: 930cbb76c7598324fad33a4cb0c59ade, type: 3}
