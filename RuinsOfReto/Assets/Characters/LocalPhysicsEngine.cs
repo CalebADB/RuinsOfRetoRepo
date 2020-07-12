@@ -169,7 +169,12 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    // wind?
+                    if (parentController.rise) { envVelocity.y += stateSpeed.y * Time.deltaTime; }
+                    if (parentController.moveRight ^ parentController.moveLeft)
+                    {
+                        if (parentController.moveRight) { envVelocity.x = stateSpeed.x * Time.deltaTime; }
+                        else { envVelocity.x = -stateSpeed.x * Time.deltaTime; }
+                    }
                     break;
                 default:
                     Debug.Log("Enviroment Missing");
