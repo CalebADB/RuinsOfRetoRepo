@@ -18,6 +18,8 @@ namespace masterFeature
         private GameObject btnLvl3;
         [SerializeField]
         private GameObject btnLvl4;
+        [SerializeField]
+        private RectTransform pnlTutorial;
 
 
 
@@ -99,6 +101,20 @@ namespace masterFeature
 
             pnlCredits.gameObject.SetActive(false);
             pnlMain.gameObject.SetActive(true);
+        }
+        public void OnClick_BtnBackTutorial()
+        {
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
+
+            pnlTutorial.gameObject.SetActive(false);
+            pnlMain.gameObject.SetActive(true);
+        }
+        public void OnClick_BtnTutorial()
+        {
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
+
+            pnlMain.gameObject.SetActive(false);
+            pnlTutorial.gameObject.SetActive(true);
         }
 
 
