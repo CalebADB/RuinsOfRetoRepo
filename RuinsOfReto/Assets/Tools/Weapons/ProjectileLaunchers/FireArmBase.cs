@@ -26,7 +26,7 @@ namespace masterFeature
         {
             transform.localPosition = axisOfRotation;
             dir = projectileLauncher.target.transform.position - transform.position;
-            angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 90f;
+            angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + 270f;
             rb.rotation = -angle;
 
             anchor = transform.position + (dir.normalized * baseLength * transform.localScale.x) + (Vector3.up * 0.11f);

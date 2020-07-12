@@ -95,13 +95,14 @@ namespace masterFeature
 
             // Displace object
             this.gameObject.transform.Translate(displacement);
+
+            //update
             if (hasGrappler)
             {
                 grappler._base.updateGrapplerBase();
                 grappler.hook.updateGrapplerHook(displacement);
                 grappler.tether.updateGrappleTether();
             }
-            this.gameObject.transform.Translate(displacement);
             if (hasProjectileLauncher)
             {
 ;               projectileLauncher._base.updateFireArmBase();
@@ -172,8 +173,8 @@ namespace masterFeature
                     if (parentController.rise) { envVelocity.y += (stateSpeed.y/4) * Time.deltaTime; }
                     if (parentController.moveRight ^ parentController.moveLeft)
                     {
-                        if (parentController.moveRight) { envVelocity.x = (stateSpeed.x / 4) * Time.deltaTime; }
-                        else { envVelocity.x = -(stateSpeed.x / 4) * Time.deltaTime; }
+                        if (parentController.moveRight) { envVelocity.x += (stateSpeed.x / 4) * Time.deltaTime; }
+                        else { envVelocity.x += -(stateSpeed.x / 4) * Time.deltaTime; }
                     }
                     break;
                 default:

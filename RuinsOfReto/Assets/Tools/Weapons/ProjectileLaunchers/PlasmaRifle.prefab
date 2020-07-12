@@ -109,12 +109,13 @@ SpriteRenderer:
   m_SortingLayerID: -476431323
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7392da89e229c5d488d94b14c0b9570f, type: 3}
+  m_Sprite: {fileID: -7344918323093491330, guid: 01ceaecde18e06643980fa0f43f81dad,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.03}
+  m_Size: {x: 0.09, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -169,6 +170,10 @@ MonoBehaviour:
   target: {fileID: 0}
   projectilePrefab: {fileID: 3640286896682065867, guid: 71e032792ffd9204ea8410d784c9410a,
     type: 3}
+  reloading: {fileID: -7344918323093491330, guid: 01ceaecde18e06643980fa0f43f81dad,
+    type: 3}
+  loaded: {fileID: -8536849572436959590, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
+  Firing: {fileID: -750083870538892842, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
   projectileLaunchSpeed: 3
   weaponLoadTime: 2
   weaponFired: 0

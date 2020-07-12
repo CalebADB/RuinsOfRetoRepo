@@ -10,12 +10,16 @@ namespace masterFeature
         public FireArmBase _base;
         public GameObject target;
         public GameObject projectilePrefab;
+        public Sprite reloading;
+        public Sprite loaded;
+        public Sprite Firing;
         public float projectileLaunchSpeed;
         public float weaponLoadTime;
         public bool weaponFired;
         private float weaponLoadTimeCur;
         private bool weaponLoaded;
         public float recoil;
+        private float holdShot = 0.2f;
 
         private void Start()
         {
@@ -48,6 +52,20 @@ namespace masterFeature
             else
             {
                 weaponLoaded = true;
+            }
+
+            // animation
+            if (controller.useWeapon && weaponLoaded || (holdShot > weaponLoadTimeCur))
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = Firing;
+            }
+            else if (weaponLoaded)
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = loaded;
+            }
+            else
+            {
+                GetComponentInChildren<SpriteRenderer>().sprite = reloading;
             }
         }
     }
