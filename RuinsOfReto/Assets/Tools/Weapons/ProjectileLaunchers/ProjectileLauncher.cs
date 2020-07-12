@@ -47,7 +47,6 @@ namespace masterFeature
             {
                 Debug.Log("FIRE");
                 GameObject projectileObject = Instantiate(projectilePrefab);
-                projectileObject.transform.parent = GameObject.FindGameObjectWithTag("ProjectileContainer").transform;
 
                 projectileObject.transform.TryGetComponent<Projectile>(out Projectile projectile);
                 projectile.transform.position = _base.anchor;

@@ -211,6 +211,7 @@ namespace masterFeature
 
                     ResetAudioSource_Music1();
                     music1_AudioSource.clip = gameCalmMusic;
+                    mixer.SetFloat("music1Vol", -40);
                     music1_AudioSource.Play();
 
                     break;
