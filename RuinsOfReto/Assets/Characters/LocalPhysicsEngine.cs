@@ -52,6 +52,11 @@ namespace masterFeature
         public bool hasGrappler;
         private Grappler grappler;
 
+        // ProjectileLauncher
+        public bool hasProjectileLauncher;
+        private ProjectileLauncher projectileLauncher;
+
+
         public delegate void JumpStart_Delegate(Vector3 jumpPoint);
         public JumpStart_Delegate JumpStart_Event;
 
@@ -75,6 +80,11 @@ namespace masterFeature
             {
                 grappler = this.gameObject.GetComponentInChildren<Grappler>();
             }
+
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher = this.gameObject.GetComponentInChildren<ProjectileLauncher>();
+            }
         }
         public void updateEngine()
         {
@@ -87,7 +97,8 @@ namespace masterFeature
             // Calculate velocity
             updateInputVelocity();
             updateEnvVelocity();
-            velocity = envVelocity + inputVelocity;
+            float frameSpeedCorrection = 1.2f;
+            velocity = envVelocity / frameSpeedCorrection + inputVelocity;
 
             // Calculate displacement
             displacement = velocity * Time.deltaTime;
@@ -108,6 +119,10 @@ namespace masterFeature
                 grappler._base.updateGrapplerBase();
                 grappler.hook.updateGrapplerHook(displacement);
                 grappler.tether.updateGrappleTether();
+            }
+            if (hasProjectileLauncher)
+            {
+                projectileLauncher._base.updateFireArmBase();
             }
         }
 
@@ -172,13 +187,27 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    // wind?
+                    if (parentController.rise) { envVelocity.y += (stateSpeed.y / 4) * Time.deltaTime; }
+                    if (parentController.moveRight ^ parentController.moveLeft)
+                    {
+                        if (parentController.moveRight) { envVelocity.x += (stateSpeed.x / 4) * Time.deltaTime; }
+                        else { envVelocity.x += -(stateSpeed.x / 4) * Time.deltaTime; }
+                    }
                     break;
                 default:
                     Debug.Log("Enviroment Missing");
                     break;
             }
 
+            if (hasGrappler)
+            {
+                grappler.updateGrappler();
+                if (grappler.grapplerState == Grappler.GrapplerStates.hookAttached)
+                {
+                    envVelocity.x += grappler.pullForce.x * Time.deltaTime;
+                    envVelocity.y += grappler.pullForce.y * Time.deltaTime;
+                }
+            }
             if (hasGrappler)
             {
                 grappler.updateGrappler();
@@ -213,7 +242,7 @@ namespace masterFeature
 
                     if (localCollisionManager.collisionData.horzCollision)
                     {
-                        envVelocity.x = -envVelocity.x / 8;
+                        envVelocity.x = 0;
                     }
                     break;
                 case Controller.EnvState.Air:
@@ -235,20 +264,8 @@ namespace masterFeature
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
-                    if (parentController.rise)
-                    {
-                        parentController.impactStrengthPercent += 10f;
-                    }
                     break;
                 case Controller.EnvState.Air:
-                    if (localCollisionManager.collisionData.bottomCollision)// vertCollision)
-                    {
-                        parentController.impactStrengthPercent += 35f;
-                    }
-                    //if (localCollisionManager.collisionData.horzCollision)
-                    //{
-                    //    parentController.impactStrengthPercent += 25f;
-                    //}
                     break;
                 default:
                     Debug.Log("Enviroment Missing");
