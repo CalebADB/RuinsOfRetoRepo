@@ -121,10 +121,12 @@ namespace masterFeature
                     if (direction.y > 0)
                     {
                         collisionData.topCollision = true;
+                        collisionData.topCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                     else
                     {
                         collisionData.bottomCollision = true;
+                        collisionData.bottomCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
                 Debug.DrawRay(rayOrigin, direction * rayLength * debugRayMultiplier, Color.magenta);
@@ -157,10 +159,12 @@ namespace masterFeature
                     if (direction.x > 0)
                     {
                         collisionData.rightCollision = true;
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                     else
                     {
                         collisionData.leftCollision = true;
+                        collisionData.leftCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
 
