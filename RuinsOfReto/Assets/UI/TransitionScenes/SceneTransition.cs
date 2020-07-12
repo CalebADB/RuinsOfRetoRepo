@@ -35,7 +35,7 @@ namespace masterFeature
             switch (destinationScene)
             {
                 case SceneName.MainMenu:
-                    DestinationScene = 1;
+                    DestinationScene = 0;
                     break;
                 case SceneName.Level1:
                     DestinationScene = 2;
