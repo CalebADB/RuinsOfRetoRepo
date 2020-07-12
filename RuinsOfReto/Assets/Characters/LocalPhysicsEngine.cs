@@ -89,7 +89,9 @@ namespace masterFeature
             this.gameObject.transform.Translate(displacement);
             if (hasGrappler)
             {
-                grappler.hook.updateGrapplerHook();
+                grappler._base.updateGrapplerBase();
+                grappler.hook.updateGrapplerHook(displacement);
+                grappler.tether.updateGrappleTether();
             }
         }
 
@@ -177,21 +179,22 @@ namespace masterFeature
 
         private void surfaceVelocityCorrection()
         {
-            if (Mathf.Abs(envVelocity.x) < 0.05)
-            {
-                envVelocity.x = 0;
-            }
-            else if (localCollisionManager.collisionData.topCollision)
-            {
-                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
-            }
-            else if (localCollisionManager.collisionData.bottomCollision)
-            {
-                envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (10 * Time.deltaTime));
-            }
             switch (parentController.env)
             {
                 case Controller.EnvState.Ground:
+                    if (Mathf.Abs(envVelocity.x) < 0.1)
+                    {
+                        envVelocity.x = 0;
+                    }
+                    else if (parentController.drop)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (5 * Time.deltaTime));
+                    }
+                    else if (localCollisionManager.collisionData.bottomCollision)
+                    {
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (15 * Time.deltaTime));
+                    }
+
                     if (localCollisionManager.collisionData.horzCollision)
                     {
                         envVelocity.x = -envVelocity.x / 8;
@@ -201,8 +204,9 @@ namespace masterFeature
                     if (localCollisionManager.collisionData.topCollision)
                     {
                         envVelocity.y = -inputVelocity.y;
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (1 * Time.deltaTime));
                     }
-                    if (localCollisionManager.collisionData.horzCollision)
+                    else if (localCollisionManager.collisionData.horzCollision)
                     {
                         envVelocity.x = -envVelocity.x/4;
                     }

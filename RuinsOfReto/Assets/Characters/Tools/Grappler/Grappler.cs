@@ -7,10 +7,10 @@ namespace masterFeature
     public class Grappler : MonoBehaviour
     {
         public Controller controller;
-        public Vector3 anchor;
-        public GameObject target;
-        public GrapplerHook hook;
+        public GrapplerBase _base;
         public GrapplerTether tether;
+        public GrapplerHook hook;
+        public GameObject target;
         public float hookLaunchSpeed;
 
         [Range(1f, 20f)]
@@ -29,29 +29,26 @@ namespace masterFeature
         private void Start()
         {
             controller = GetComponentInParent<Controller>();
-            setRender(false);
         }
 
         public void updateGrappler()
         {
             pullForce = Vector3.zero;
-            setAnchor(new Vector3(0f,0.4f,0));
+
             switch (grapplerState)
             {
                 case GrapplerStates.hookIn:
                     if (controller.useHook)
                     {
-                        hook.velocity = 10 * hookLaunchSpeed * Vector3.Normalize(target.transform.position - anchor);
+                        hook.velocity = 10 * hookLaunchSpeed * Vector3.Normalize(target.transform.position - _base.anchor);
                         grapplerState = GrapplerStates.hookOut;
-                        setRender(true);
                     }
                     break;
                 case GrapplerStates.hookOut:
                     if (!controller.useHook)
                     {
-                        hook.transform.position = anchor;
+                        hook.transform.position = _base.anchor;
                         grapplerState = GrapplerStates.hookIn;
-                        setRender(false);
                     }
                     else if (hook.localCollisionManager.collisionData.horzCollision || hook.localCollisionManager.collisionData.vertCollision)
                     {
@@ -61,21 +58,16 @@ namespace masterFeature
                 case GrapplerStates.hookAttached:
                     if (!controller.useHook)
                     {
-                        hook.transform.position = anchor;
+                        hook.transform.position = _base.anchor;
                         grapplerState = GrapplerStates.hookIn;
-                        setRender(false);
                     }
-                    pullForce.x = pullStrength * (hook.attachPos.x - anchor.x);
-                    pullForce.y = pullStrength * (hook.attachPos.y - anchor.y);
+                    pullForce.x = pullStrength * (hook.attachPos.x - _base.anchor.x);
+                    pullForce.y = pullStrength * (hook.attachPos.y - _base.anchor.y);
                     if (pullForce.magnitude > pullForceMax) { pullForce = pullForceMax* pullForce.normalized; };
                     break;
             }
         }
 
-        public void setAnchor(Vector3 anchorCorrection)
-        {
-            anchor = controller.transform.position + anchorCorrection;
-        }
         private void setRender(bool render)
         {
             SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
