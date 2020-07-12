@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - ProjectileContainer
   - NextLevelTrigger
+  - TriggerActionMusic
+  - TriggerCombatMusic
   layers:
   - Default
   - TransparentFX

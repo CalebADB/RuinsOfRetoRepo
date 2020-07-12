@@ -18,6 +18,8 @@ namespace masterFeature
         private GameObject btnLvl3;
         [SerializeField]
         private GameObject btnLvl4;
+        [SerializeField]
+        private RectTransform pnlTutorial;
 
 
 
@@ -36,7 +38,7 @@ namespace masterFeature
 
         public void OnClick_BtnNewGame()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
 
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
             SceneTransition.TransitionToNextScene(SceneTransition.SceneName.Level1);
@@ -51,54 +53,68 @@ namespace masterFeature
         }
         public void OnClick_BtnCredits()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
 
             pnlMain.gameObject.SetActive(false);
             pnlCredits.gameObject.SetActive(true);
         }
         public void OnClick_BtnQuit()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
 
             Application.Quit();
         }
         public void OnClick_BtnLevel1()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
             SceneTransition.TransitionToNextScene(SceneTransition.SceneName.Level1);
         }
         public void OnClick_BtnLevel2()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
             SceneTransition.TransitionToNextScene(SceneTransition.SceneName.Level2);
         }
         public void OnClick_BtnLevel3()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
             SceneTransition.TransitionToNextScene(SceneTransition.SceneName.Level3);
         }
         public void OnClick_BtnLevel4()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
             SceneTransition.TransitionToNextScene(SceneTransition.SceneName.Level4);
         }
         public void OnClick_BtnBackLevelSelect()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
 
             pnlLvlSelect.gameObject.SetActive(false);
             pnlMain.gameObject.SetActive(true);
         }
         public void OnClick_BtnBackCredit()
         {
-            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonClick);
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
 
             pnlCredits.gameObject.SetActive(false);
             pnlMain.gameObject.SetActive(true);
+        }
+        public void OnClick_BtnBackTutorial()
+        {
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
+
+            pnlTutorial.gameObject.SetActive(false);
+            pnlMain.gameObject.SetActive(true);
+        }
+        public void OnClick_BtnTutorial()
+        {
+            MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
+
+            pnlMain.gameObject.SetActive(false);
+            pnlTutorial.gameObject.SetActive(true);
         }
 
 

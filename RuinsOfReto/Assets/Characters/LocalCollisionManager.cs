@@ -177,6 +177,7 @@ namespace masterFeature
         /// </summary>
         public Vector2 getCollisionDisplacement(Vector2 displacement)
         {
+
             if (collisionData.horzCollision)
             {
                 displacement.x = collisionData.horzCollisionDistance;

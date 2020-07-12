@@ -564,7 +564,13 @@ MonoBehaviour:
   music2_AudioSource: {fileID: 3467847149246404927}
   sfx_AudioSource: {fileID: 3467847148102153154}
   ambient_AudioSource: {fileID: 3467847148860700955}
-  menuMusic: {fileID: 8300000, guid: 4c2c84b993038a64ca8869b8b13c9612, type: 3}
+  menuMusic: {fileID: 8300000, guid: ba9a7a7fe2da1624989ec7e280e060e5, type: 3}
   gameCalmMusic: {fileID: 8300000, guid: 8b38d2251f4a1ea40965d406a4aeea23, type: 3}
   gameActionMusic: {fileID: 8300000, guid: 44ce73a0461bb6f42b9792fd415b6eaf, type: 3}
+  gameCombatMusic: {fileID: 8300000, guid: 900f7f06056e56e4e91e24617fe61562, type: 3}
+  buttonOk: {fileID: 8300000, guid: 76a710fdacab66344a2eea6e3cf03d79, type: 3}
+  buttonBack: {fileID: 8300000, guid: f6cc6b8a4e36339418da596e761f43b4, type: 3}
   buttonClick: {fileID: 8300000, guid: 19bedfcdf99277944932193c17e3f9a0, type: 3}
+  playerJump: {fileID: 8300000, guid: 4c688a8af21ce5b41b481ca1091bfaf9, type: 3}
+  hookEject: {fileID: 8300000, guid: 0db70725eabb3c3488ff9d939ca48f16, type: 3}
+  hookHit: {fileID: 8300000, guid: 930cbb76c7598324fad33a4cb0c59ade, type: 3}
