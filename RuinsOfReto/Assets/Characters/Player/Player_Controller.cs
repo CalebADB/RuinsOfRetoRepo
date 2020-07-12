@@ -18,6 +18,9 @@ namespace masterFeature
         Grappler grappler;
         ProjectileLauncher projectileLauncher;
 
+        private bool isActionMusicTriggered = false;
+        private bool isCombatMusicTriggered = false;
+
         private void Start()
         {            
             start();
@@ -61,6 +64,34 @@ namespace masterFeature
         {
             VFXManager.Instance.StartHitLeftVFX(hitPoint);
         }
+
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "TriggerActionMusic" &&
+                isActionMusicTriggered == false)
+            {
+                Debug.Log("Music Change Triggered");
+                isActionMusicTriggered = true;
+                if (MusicEngine.Instance != null)
+                {
+                    MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.ActionZoneTrigger);
+                }
+            }
+
+            if (other.gameObject.tag == "TriggerCombatMusic" &&
+               isCombatMusicTriggered == false)
+            {
+                Debug.Log("Music Change Triggered");
+                isCombatMusicTriggered = true;
+                if (MusicEngine.Instance != null)
+                {
+                    MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.CombatZoneTrigger);
+                }
+            }
+        }
+
     }
 }
 

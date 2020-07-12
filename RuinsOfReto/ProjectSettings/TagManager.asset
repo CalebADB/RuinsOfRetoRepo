@@ -9,6 +9,8 @@ TagManager:
   - Cursor
   - Enemy
   - ProjectileContainer
+  - TriggerActionMusic
+  - TriggerCombatMusic
   layers:
   - Default
   - TransparentFX
