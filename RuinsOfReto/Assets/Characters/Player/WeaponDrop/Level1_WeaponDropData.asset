@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Level1_WeaponDropData
   m_EditorClassIdentifier: 
   positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
-  - {x: 20, y: 0, z: 0}
-  types: 000000000100000002000000
+  - {x: 40.5, y: 6.5, z: 0}
+  - {x: 62.5, y: 15, z: 0}
+  - {x: 100.5, y: 13, z: 0}
+  - {x: 131.5, y: 20.5, z: 0}
+  types: 00000000010000000100000000000000

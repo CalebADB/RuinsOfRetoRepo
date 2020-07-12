@@ -52,4 +52,5 @@ MonoBehaviour:
     type: 3}
   plasmaSprite: {fileID: 5538487446649018516, guid: 67e3e4e05fdfdc545bed4f0a8beeaa48,
     type: 3}
-  WEAPON_DROP_COLLECT_RADIUS: 3
+  WEAPON_DROP_COLLECT_RADIUS: 0.7
+  playerTransform: {fileID: 0}

@@ -24,12 +24,20 @@ namespace masterFeature
         // Update is called once per frame
         public void updateFireArmBase()
         {
-            transform.localPosition = axisOfRotation;
-            dir = projectileLauncher.target.transform.position - transform.position;
-            angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + 270f;
-            rb.rotation = -angle;
+            try
+            {
 
-            anchor = transform.position + (dir.normalized * baseLength * transform.localScale.x) + (Vector3.up * 0.11f);
+                transform.localPosition = axisOfRotation;
+                dir = projectileLauncher.target.transform.position - transform.position;
+                angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + 270f;
+                rb.rotation = -angle;
+
+                anchor = transform.position + (dir.normalized * baseLength * transform.localScale.x) + (Vector3.up * 0.11f);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Error: " + e.Message);
+            }
         }
     }
 }

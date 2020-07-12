@@ -37,6 +37,37 @@ namespace masterFeature
             localPhysicsEngine.HitLeft_Event += HitLeft;
         }
 
+        public void SwitchToWeapon(WeaponType weaponType)
+        {
+            switch (weaponType)
+            {
+                case WeaponType.gerenade:
+                    transform.GetChild(1).gameObject.SetActive(true);
+                    transform.GetChild(2).gameObject.SetActive(false);
+                    transform.GetChild(3).gameObject.SetActive(false);
+                    localPhysicsEngine.projectileLauncher = transform.GetChild(1).GetComponent<ProjectileLauncher>();
+                    break;
+                case WeaponType.missleLuncher:
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(true);
+                    transform.GetChild(3).gameObject.SetActive(false);
+                    localPhysicsEngine.projectileLauncher = transform.GetChild(2).GetComponent<ProjectileLauncher>();
+                    break;
+                case WeaponType.plasma:
+                    transform.GetChild(1).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(false);
+                    transform.GetChild(3).gameObject.SetActive(true);
+                    localPhysicsEngine.projectileLauncher = transform.GetChild(3).GetComponent<ProjectileLauncher>();
+                    break;
+                default:
+                    transform.GetChild(1).gameObject.SetActive(true);
+                    transform.GetChild(2).gameObject.SetActive(false);
+                    transform.GetChild(3).gameObject.SetActive(false);
+                    localPhysicsEngine.projectileLauncher = transform.GetChild(1).GetComponent<ProjectileLauncher>();
+                    break;
+            }
+        }
+
         private void JumpStart(Vector3 jumpPoint)
         {
             //Debug.Log("player jump");

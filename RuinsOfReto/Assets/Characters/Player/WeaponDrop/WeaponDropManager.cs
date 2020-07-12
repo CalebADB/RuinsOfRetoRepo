@@ -9,36 +9,56 @@ namespace masterFeature
     {
         public GameObject weaponIndicatorPrefab;
 
-        public WeaponDropsList levelWeaponDrops;
-
         public Sprite gerenadeSprite;
         public Sprite missleLuncherSprite;
         public Sprite plasmaSprite;
 
         public float WEAPON_DROP_COLLECT_RADIUS;
 
-        private List<GameObject> weapnDropsList;
+        private List<Vector3> weaponDropPosList;
+        private List<WeaponType> weaponDropTypeList;
+        private List<GameObject> weapnDropsGOList;
+        private Player_Controller player_Controller;
 
         void Start()
         {
+            weapnDropsGOList = new List<GameObject>();
+            weaponDropPosList = new List<Vector3>();
+            weaponDropTypeList = new List<WeaponType>();
+            FindAllWeaponDrops();
             SpawnAllWeaponDrops();
+            player_Controller = transform.parent.GetComponentInChildren<Player_Controller>();
+        }
+
+        void Update()
+        {
+            CollectWeaponDrop();
+        }
+
+        private void FindAllWeaponDrops()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                weapnDropsGOList.Add(transform.GetChild(i).gameObject);
+                weaponDropPosList.Add(transform.GetChild(i).position);
+                weaponDropTypeList.Add(transform.GetChild(i).GetComponent<WeaponDropData>().weaponType);
+            }
         }
 
         public void SpawnAllWeaponDrops()
         {
-            for (int i = 0; i < levelWeaponDrops.positions.Count; i++)
+            for (int i = 0; i < weaponDropPosList.Count; i++)
             {
-                GameObject weaponDropIndicatorGameObject = ObjectPool.Spawn(weaponIndicatorPrefab, levelWeaponDrops.positions[i]);
-                switch (levelWeaponDrops.types[i])
+                switch (weaponDropTypeList[i])
                 {
                     case WeaponType.gerenade:
-                        weaponDropIndicatorGameObject.GetComponent<SpriteRenderer>().sprite = gerenadeSprite;
+                        weapnDropsGOList[i].GetComponent<SpriteRenderer>().sprite = gerenadeSprite;
                         break;
                     case WeaponType.missleLuncher:
-                        weaponDropIndicatorGameObject.GetComponent<SpriteRenderer>().sprite = missleLuncherSprite;
+                        weapnDropsGOList[i].GetComponent<SpriteRenderer>().sprite = missleLuncherSprite;
                         break;
                     case WeaponType.plasma:
-                        weaponDropIndicatorGameObject.GetComponent<SpriteRenderer>().sprite = plasmaSprite;
+                        weapnDropsGOList[i].GetComponent<SpriteRenderer>().sprite = plasmaSprite;
                         break;
                     default:
                         break;
@@ -48,24 +68,28 @@ namespace masterFeature
 
         public void DespawnAllWeaponDrops()
         {
-            for (int i = 0; i < weapnDropsList.Count; i++)
+            for (int i = 0; i < weapnDropsGOList.Count; i++)
             {
-                ObjectPool.Despawn(weapnDropsList[i]);
+                ObjectPool.Despawn(weapnDropsGOList[i]);
             }
+            weapnDropsGOList = new List<GameObject>();
         }
 
-        public WeaponType GetCollectableWeaponDrop(Vector3 playerPos)
+        public void CollectWeaponDrop()
         {
             WeaponType resultWeaponType = WeaponType.NULL;
-            for (int i = 0; i < levelWeaponDrops.positions.Count; i++)
+            for (int i = 0; i < weaponDropPosList.Count; i++)
             {
-                if(Vector3.Distance(playerPos, levelWeaponDrops.positions[i]) < WEAPON_DROP_COLLECT_RADIUS)
+                if(Vector3.Distance(player_Controller.transform.position, weaponDropPosList[i]) < WEAPON_DROP_COLLECT_RADIUS)
                 {
-                    resultWeaponType = levelWeaponDrops.types[i];
-                    ObjectPool.Despawn(weapnDropsList[i]);
+                    resultWeaponType = weaponDropTypeList[i];
+                    player_Controller.SwitchToWeapon(resultWeaponType);
+                    ObjectPool.Despawn(weapnDropsGOList[i]);
+                    weapnDropsGOList.RemoveAt(i);
+                    weaponDropPosList.RemoveAt(i);
+                    weaponDropTypeList.RemoveAt(i);
                 }
             }
-            return resultWeaponType;
         }
     }
 }
