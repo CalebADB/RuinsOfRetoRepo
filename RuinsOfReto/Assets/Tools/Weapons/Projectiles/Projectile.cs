@@ -66,9 +66,5 @@ namespace masterFeature
                 }
             }
         }
-
-        private void OnTriggerEnter2D(Collider2D hitInfo)
-        {
-        }
     }
 }

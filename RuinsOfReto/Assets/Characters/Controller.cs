@@ -184,6 +184,7 @@ namespace masterFeature
                 if (canRespawn)
                 {
                     transform.position = spawn;
+                    health = 4;
                     localPhysicsEngine.envVelocity = Vector2.zero;
                 }
                 else

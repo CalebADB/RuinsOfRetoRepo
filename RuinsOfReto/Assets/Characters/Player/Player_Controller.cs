@@ -19,7 +19,7 @@ namespace masterFeature
         ProjectileLauncher projectileLauncher;
 
         private void Start()
-        {            
+        {
             start();
 
             health = 4;
@@ -35,6 +35,13 @@ namespace masterFeature
             localPhysicsEngine.HitBottom_Event += HitBottom;
             localPhysicsEngine.HitRight_Event += HitRight;
             localPhysicsEngine.HitLeft_Event += HitLeft;
+        }
+
+        private void Update()
+        {
+            update();
+            getHitByEnemy();
+            Debug.Log(health);
         }
 
         public void SwitchToWeapon(WeaponType weaponType)
@@ -91,6 +98,17 @@ namespace masterFeature
         private void HitLeft(Vector3 hitPoint)
         {
             VFXManager.Instance.StartHitLeftVFX(hitPoint);
+        }
+
+        void getHitByEnemy()
+        {
+            if (localPhysicsEngine.localCollisionManager.collisionData.horzCollision || localPhysicsEngine.localCollisionManager.collisionData.horzCollision)
+            {
+                if (localPhysicsEngine.localCollisionManager.collisionData.collidedObject.CompareTag("Enemy"))
+                {
+                    takeDamage();
+                }
+            }
         }
     }
 }

@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 7124548204501184868}
   - component: {fileID: 7124548204501184891}
   m_Layer: 10
-  m_Name: TestEnemy
-  m_TagString: Untagged
+  m_Name: TestEnemy_A
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,8 +127,10 @@ MonoBehaviour:
   inputVelocity: {x: 0, y: 0}
   envVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
+  dontfollowGravity: 0
   hasGrappler: 0
   hasProjectileLauncher: 0
+  projectileLauncher: {fileID: 0}
 --- !u!114 &7124548204501184870
 MonoBehaviour:
   m_ObjectHideFlags: 0
