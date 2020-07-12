@@ -118,7 +118,6 @@ MonoBehaviour:
   envVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   hasGrappler: 1
-  hasProjectileLauncher: 0
 --- !u!114 &5025841100198139410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b408d6be33dffc644ac4a858b4d39391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugRayMultiplier: 10
+  debugRayMultiplier: 2
   collisionMask:
     serializedVersion: 2
     m_Bits: 1536
