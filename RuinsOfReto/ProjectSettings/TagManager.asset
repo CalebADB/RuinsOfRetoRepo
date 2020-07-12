@@ -8,6 +8,7 @@ TagManager:
   - PhysicsEngine
   - Cursor
   - Enemy
+  - ProjectileContainer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player
   - Rigid
   - Enemy
-  - 
+  - Projectiles
   - 
   - 
   - 
