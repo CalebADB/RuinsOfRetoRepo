@@ -30,8 +30,10 @@ namespace masterFeature
 
         private void Start()
         {
+            Debug.Log(collider);
             collider = this.GetComponent<BoxCollider2D>();
             calculateRaySpacing();
+            Debug.Log(collider);
         }
 
         private void calculateRaySpacing()
@@ -162,7 +164,7 @@ namespace masterFeature
                     else
                     {
                         collisionData.leftCollision = true;
-                        collisionData.leftCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
 
@@ -177,6 +179,7 @@ namespace masterFeature
         /// </summary>
         public Vector2 getCollisionDisplacement(Vector2 displacement)
         {
+            Debug.Log(displacement);
             if (collisionData.horzCollision)
             {
                 displacement.x = collisionData.horzCollisionDistance;
