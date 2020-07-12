@@ -3,42 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TestSound : MonoBehaviour
+namespace masterFeature
 {
-    
-    public void Start_MenuScene()
+    public class TestSound : MonoBehaviour
     {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.Start_MenuScene);
-    }
 
-    public void End_MenuScene()
-    {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
-    }
+        public void Start_MenuScene()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.Start_MenuScene);
+        }
 
-    public void Start_LevelScene()
-    {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.Start_LevelScene);
-    }
+        public void End_MenuScene()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.End_MenuScene);
+        }
 
-    public void ActionZoneTrigger()
-    {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.ActionZoneTrigger);
-    }
+        public void Start_LevelScene()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.Start_LevelScene);
+        }
 
-    public void CalmZoneTrigger()
-    {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.CalmZoneTrigger);
-    }
+        public void ActionZoneTrigger()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.ActionZoneTrigger);
+        }
 
-    public void LevelFinished()
-    {
-        MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.LevelFinished);
-    }
+        public void CalmZoneTrigger()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.CalmZoneTrigger);
+        }
 
-    public void Reset()
-    {
-        SceneManager.LoadScene("TestSound");
-    }
+        public void LevelFinished()
+        {
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.LevelFinished);
+        }
 
+        public void Reset()
+        {
+            SceneManager.LoadScene("TestSound");
+        }
+
+    }
 }

@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocalSFXManager : MonoBehaviour
+namespace masterFeature
 {
-    [Header("Audio Clip List")]
-    [SerializeField]
-    private AudioClip sfx_Jump;
-    [SerializeField]
-    private AudioClip sfx_Fall;
-
-
-    public void PlaySFX_Jump()
+    public class LocalSFXManager : MonoBehaviour
     {
-        if (sfx_Jump !=null)
+        [Header("Audio Clip List")]
+        [SerializeField]
+        private AudioClip sfx_Jump;
+        [SerializeField]
+        private AudioClip sfx_Fall;
+
+
+        public void PlaySFX_Jump()
         {
-            MusicEngine.Instance.PlaySFX(sfx_Jump);
-        }
-        
-    }
+            if (sfx_Jump != null)
+            {
+                MusicEngine.Instance.PlaySFX(sfx_Jump);
+            }
 
-    public void PlaySFX_Fall()
-    {
-        if (sfx_Fall != null)
+        }
+
+        public void PlaySFX_Fall()
         {
-            MusicEngine.Instance.PlaySFX(sfx_Fall);
+            if (sfx_Fall != null)
+            {
+                MusicEngine.Instance.PlaySFX(sfx_Fall);
+            }
         }
+
+
+
     }
-
-
-
 }
