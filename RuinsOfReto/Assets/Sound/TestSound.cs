@@ -30,7 +30,7 @@ namespace masterFeature
 
         public void CalmZoneTrigger()
         {
-            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.CalmZoneTrigger);
+            MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.CombatZoneTrigger);
         }
 
         public void LevelFinished()

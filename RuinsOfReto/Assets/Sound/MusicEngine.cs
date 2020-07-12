@@ -30,10 +30,22 @@ namespace masterFeature
         private AudioClip gameCalmMusic;
         [SerializeField]
         private AudioClip gameActionMusic;
+        [SerializeField]
+        private AudioClip gameCombatMusic;
 
         [Header("Global SFX Clip")]
         [SerializeField]
+        private AudioClip buttonOk;
+        [SerializeField]
+        private AudioClip buttonBack;
+        [SerializeField]
         private AudioClip buttonClick;
+        [SerializeField]
+        private AudioClip playerJump;
+        [SerializeField]
+        private AudioClip hookEject;
+        [SerializeField]
+        private AudioClip hookHit;
 
 
 
@@ -54,9 +66,6 @@ namespace masterFeature
 
         private float music1_timePassed_Fade = 0;
         private float music2_timePassed_Fade = 0;
-
-
-
 
         private float fadeTime = 3.5f;
 
@@ -213,10 +222,10 @@ namespace masterFeature
 
                     break;
 
-                case Music_Situation.CalmZoneTrigger:
+                case Music_Situation.CombatZoneTrigger:
 
                     StartFadeout_Music2();
-                    StartFadein_Music1();
+                    StartFadein_CombatMusic1();
 
                     break;
 
@@ -248,8 +257,28 @@ namespace masterFeature
         {
             switch (sfxType)
             {
+                case SFXType.buttonOk:
+                    sfx_AudioSource.clip = buttonOk;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.ButtonBack:
+                    sfx_AudioSource.clip = buttonBack;
+                    sfx_AudioSource.Play();
+                    break;
                 case SFXType.buttonClick:
                     sfx_AudioSource.clip = buttonClick;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.HookEject:
+                    sfx_AudioSource.clip = hookEject;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.HookHit:
+                    sfx_AudioSource.clip = hookHit;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.jumpPlayer:
+                    sfx_AudioSource.clip = playerJump;
                     sfx_AudioSource.Play();
                     break;
                 default:
@@ -261,14 +290,14 @@ namespace masterFeature
 
 
 
-        private void StartFadein_Music1()
+        private void StartFadein_CombatMusic1()
         {
             music1_timePassed_Fade = 0;
             music1_CurrentVolume = 0;
             mixer.SetFloat("music1Vol", -80);
             //music1_CurrentVolume = Mathf.Pow(10, music1_CurrentVolume / 20);
             music1_targetValue = Mathf.Clamp(music1_initialVolume, 0.0001f, 1);
-            music1_AudioSource.clip = gameCalmMusic;
+            music1_AudioSource.clip = gameCombatMusic;
             music1_AudioSource.Play();
 
             music1_fadeType = FadeType.Fadein_Music;
@@ -337,13 +366,18 @@ namespace masterFeature
             End_MenuScene,
             Start_LevelScene,
             ActionZoneTrigger,
-            CalmZoneTrigger,
+            CombatZoneTrigger,
             LevelFinished
         }
 
         public enum SFXType
         {
-            buttonClick
+            buttonOk,
+            ButtonBack,
+            buttonClick,
+            jumpPlayer,
+            HookEject,
+            HookHit,
         }
     }
 }
