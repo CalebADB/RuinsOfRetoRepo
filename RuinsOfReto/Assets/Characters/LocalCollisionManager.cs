@@ -117,10 +117,12 @@ namespace masterFeature
                     if (direction.x > 0)
                     {
                         collisionData.rightCollision = true;
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                     else
                     {
                         collisionData.leftCollision = true;
+                        collisionData.rightCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
 
@@ -154,10 +156,12 @@ namespace masterFeature
                     if (direction.y > 0)
                     {
                         collisionData.topCollision = true;
+                        collisionData.topCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                     else
                     {
                         collisionData.bottomCollision = true;
+                        collisionData.bottomCollisionPos = new Vector3(hit.point.x, hit.point.y, 0);
                     }
                 }
                 Debug.DrawRay(rayOrigin, direction * rayLength * debugRayMultiplier, Color.magenta);
@@ -190,13 +194,17 @@ namespace masterFeature
             // Horizontal info
             public bool horzCollision;
             public bool rightCollision;
+            public Vector3 rightCollisionPos;
             public bool leftCollision;
+            public Vector3 leftCollisionPos;
             public float horzCollisionDistance;
 
             // Vertical info
             public bool vertCollision;
             public bool topCollision;
+            public Vector3 topCollisionPos;
             public bool bottomCollision;
+            public Vector3 bottomCollisionPos;
             public float vertCollisionDistance;
             
         }
