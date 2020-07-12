@@ -169,11 +169,11 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    if (parentController.rise) { envVelocity.y += stateSpeed.y * Time.deltaTime; }
+                    if (parentController.rise) { envVelocity.y += (stateSpeed.y/4) * Time.deltaTime; }
                     if (parentController.moveRight ^ parentController.moveLeft)
                     {
-                        if (parentController.moveRight) { envVelocity.x = stateSpeed.x * Time.deltaTime; }
-                        else { envVelocity.x = -stateSpeed.x * Time.deltaTime; }
+                        if (parentController.moveRight) { envVelocity.x = (stateSpeed.x / 4) * Time.deltaTime; }
+                        else { envVelocity.x = -(stateSpeed.x / 4) * Time.deltaTime; }
                     }
                     break;
                 default:
