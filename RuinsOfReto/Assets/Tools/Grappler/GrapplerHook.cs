@@ -29,7 +29,6 @@ namespace masterFeature
             switch (grappler.grapplerState)
             {
                 case (Grappler.GrapplerStates.hookIn):
-                    
                     rb.rotation = -grappler._base.angle;
                     this.gameObject.transform.position = grappler._base.anchor;
                     break;
