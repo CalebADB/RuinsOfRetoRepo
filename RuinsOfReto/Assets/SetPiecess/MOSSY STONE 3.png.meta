@@ -1,43 +1,16 @@
 fileFormatVersion: 2
-guid: 06d1757d72e974189ac5c43251c6cd2b
+guid: 095124e8921b84f5c998a3b9f230c5bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1438670581314558916
-    second: BROKEN BRIDGE_right_0
+      213: -2315722579462704351
+    second: MOSSY STONE 3_0
   - first:
-      213: -1065641097433406752
-    second: BROKEN BRIDGE_right_1
+      213: -465291505074329080
+    second: MOSSY STONE 3_1
   - first:
-      213: 3607522315872422711
-    second: BROKEN BRIDGE_right_2
-  - first:
-      213: 2140249046647895133
-    second: BROKEN BRIDGE_right_3
-  - first:
-      213: -2175576884209894085
-    second: BROKEN BRIDGE_right_4
-  - first:
-      213: 514899697464877893
-    second: BROKEN BRIDGE_right_5
-  - first:
-      213: 5291724345752925393
-    second: BROKEN BRIDGE_right_6
-  - first:
-      213: -2947602101118074567
-    second: BROKEN BRIDGE_right_7
-  - first:
-      213: -2499644620300918432
-    second: BROKEN BRIDGE_right_8
-  - first:
-      213: -8330297679536656041
-    second: BROKEN BRIDGE_right_9
-  - first:
-      213: 4013482541932043156
-    second: BROKEN BRIDGE_right_10
-  - first:
-      213: -977467352099418026
-    second: BROKEN BRIDGE_right_0
+      213: -7991241901106719251
+    second: MOSSY STONE 3_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BROKEN BRIDGE_right_0
+      name: MOSSY STONE 3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +104,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65092924f965f62f0800000000000000
-      internalID: -977467352099418026
+      spriteID: 12336cc4596ecdfd0800000000000000
+      internalID: -2315722579462704351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BROKEN BRIDGE_right_1
+      name: MOSSY STONE 3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +125,35 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e2ac6161151631f0800000000000000
-      internalID: -1065641097433406752
+      spriteID: 80aa90367d3fa89f0800000000000000
+      internalID: -465291505074329080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOSSY STONE 3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5115294d7691190800000000000000
+      internalID: -7991241901106719251
       vertices: []
       indices: 
       edges: []

@@ -9,6 +9,7 @@ TagManager:
   - Cursor
   - Enemy
   - ProjectileContainer
+  - NextLevelTrigger
   layers:
   - Default
   - TransparentFX
