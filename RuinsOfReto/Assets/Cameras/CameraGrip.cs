@@ -77,7 +77,8 @@ namespace masterFeature
         // Update is called once per frame
         void Update()
         {
-            if((cameraHeld != cameraHeldLastFrame) || (camera_Play.UPDATE_VARIABLES || camera_Play.UPDATE_VARIABLES))
+
+            if ((cameraHeld != cameraHeldLastFrame) || (camera_Play.UPDATE_VARIABLES || camera_Play.UPDATE_VARIABLES))
             {
                 useCamera(cameraHeld);
             }

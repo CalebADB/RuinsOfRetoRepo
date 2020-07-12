@@ -7,8 +7,18 @@ using UnityEngine.Events;
 namespace masterFeature
 {
     [RequireComponent(typeof(LocalPhysicsEngine), typeof(Animator))]//,typeof(LocalSoundEngine) 
-    public class Controller : MonoBehaviour
+    public abstract class Controller : MonoBehaviour
     {
+        // GameData:
+        // Combat
+        public int health;
+        public float deathTimeLength;
+        public bool canRespawn;
+        public Vector3 spawn;
+        private float deathTimeCur; 
+        private bool dying;
+
+
         // Physics:
         // Prep
         public LocalPhysicsEngine localPhysicsEngine;
@@ -17,6 +27,7 @@ namespace masterFeature
         public bool pause;
 
         public bool useHook;
+        public bool useWeapon;
 
         public bool slow;
 
@@ -48,11 +59,6 @@ namespace masterFeature
         // HashCodes
         public AnimatorHashCodes animatorHashCodes;
 
-        private void Start()
-        {
-            start();
-        }
-
         public void start()
         {
             getLocalPhysicsEngine();
@@ -62,9 +68,19 @@ namespace masterFeature
 
         private void Update()
         {
-            // Physics
+            update();
+        }
+
+        public void update()
+        {
             if (!pause)
             {
+                if (dying)
+                {
+                    die();
+                }
+
+                // Physics
                 localPhysicsEngine.updateEngine();
             }
 
@@ -119,6 +135,30 @@ namespace masterFeature
             else if (!moveRight && moveLeft)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+        public void takeDamage(int damage = 1)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                dying = true;
+            }
+        }
+        public void die()
+        {
+            deathTimeCur += Time.deltaTime;
+            if (deathTimeCur > deathTimeLength)
+            {
+                if (canRespawn)
+                {
+                    transform.position = spawn;
+                    localPhysicsEngine.envVelocity = Vector2.zero;
+                }
+                else
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
