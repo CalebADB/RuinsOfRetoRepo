@@ -35,7 +35,17 @@ namespace masterFeature
 
         [Header("Global SFX Clip")]
         [SerializeField]
+        private AudioClip buttonOk;
+        [SerializeField]
+        private AudioClip buttonBack;
+        [SerializeField]
         private AudioClip buttonClick;
+        [SerializeField]
+        private AudioClip playerJump;
+        [SerializeField]
+        private AudioClip hookEject;
+        [SerializeField]
+        private AudioClip hookHit;
 
 
 
@@ -247,8 +257,28 @@ namespace masterFeature
         {
             switch (sfxType)
             {
+                case SFXType.buttonOk:
+                    sfx_AudioSource.clip = buttonOk;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.ButtonBack:
+                    sfx_AudioSource.clip = buttonBack;
+                    sfx_AudioSource.Play();
+                    break;
                 case SFXType.buttonClick:
                     sfx_AudioSource.clip = buttonClick;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.HookEject:
+                    sfx_AudioSource.clip = hookEject;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.HookHit:
+                    sfx_AudioSource.clip = hookHit;
+                    sfx_AudioSource.Play();
+                    break;
+                case SFXType.jumpPlayer:
+                    sfx_AudioSource.clip = playerJump;
                     sfx_AudioSource.Play();
                     break;
                 default:
@@ -342,7 +372,12 @@ namespace masterFeature
 
         public enum SFXType
         {
-            buttonClick
+            buttonOk,
+            ButtonBack,
+            buttonClick,
+            jumpPlayer,
+            HookEject,
+            HookHit,
         }
     }
 }
