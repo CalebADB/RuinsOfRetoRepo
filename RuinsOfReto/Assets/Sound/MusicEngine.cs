@@ -21,13 +21,17 @@ public class MusicEngine : MonoBehaviour
     private AudioSource ambient_AudioSource;
 
 
-    [Header("Audio Clip List")]
+    [Header("Music Clip")]
     [SerializeField]
     private AudioClip menuMusic;
     [SerializeField]
     private AudioClip gameCalmMusic;
     [SerializeField]
     private AudioClip gameActionMusic;
+
+    [Header("Global SFX Clip")]
+    [SerializeField]
+    private AudioClip buttonClick;
 
 
 
@@ -238,6 +242,20 @@ public class MusicEngine : MonoBehaviour
         sfx_AudioSource.Play();
     }
 
+    public void PlaySFX(SFXType sfxType)
+    {
+        switch (sfxType)
+        {
+            case SFXType.buttonClick:
+                sfx_AudioSource.clip = buttonClick;
+                sfx_AudioSource.Play();
+                break;
+            default:
+                break;
+        }
+        
+    }
+
 
 
 
@@ -319,5 +337,10 @@ public class MusicEngine : MonoBehaviour
         ActionZoneTrigger,
         CalmZoneTrigger,
         LevelFinished
+    }
+
+    public enum SFXType
+    {
+        buttonClick
     }
 }
