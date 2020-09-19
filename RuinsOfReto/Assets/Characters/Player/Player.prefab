@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5025841100198139435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 7008727360991021222}
@@ -52,10 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a21b26c3d421ef40879c4444dbf6424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 3
   health: 0
   deathTimeLength: 0
-  canRespawn: 0
+  canRespawn: 1
   spawn: {x: 0, y: 0, z: 0}
+  invincible: 0
+  invincibleTime: 0
   localPhysicsEngine: {fileID: 0}
   pause: 0
   useHook: 0
@@ -68,7 +71,6 @@ MonoBehaviour:
   impactStrengthPercent: 0
   env: 4
   animatorHashCodes: {fileID: 0}
-  playerSpawn: {x: 0, y: 0, z: 0}
 --- !u!114 &5025841100198139411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,8 +119,10 @@ MonoBehaviour:
   inputVelocity: {x: 0, y: 0}
   envVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
+  dontfollowGravity: 0
   hasGrappler: 1
   hasProjectileLauncher: 1
+  projectileLauncher: {fileID: 0}
 --- !u!114 &5025841100198139410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +202,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 32768
   m_RendererPriority: 0
   m_Materials:
@@ -299,7 +304,7 @@ PrefabInstance:
     - target: {fileID: 8990632766577799309, guid: 7365742eb4130f94892ef570f1e32aa7,
         type: 3}
       propertyPath: projectileLaunchSpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8990632766577799311, guid: 7365742eb4130f94892ef570f1e32aa7,
         type: 3}
@@ -334,7 +339,7 @@ PrefabInstance:
     - target: {fileID: 2683875016721687146, guid: f26fce2b06cf3e842997bb5d9cc96b86,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8012742346861080241, guid: f26fce2b06cf3e842997bb5d9cc96b86,
         type: 3}
@@ -406,11 +411,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5025841100198139438}
     m_Modifications:
-    - target: {fileID: 3978391114289682194, guid: 6c0c4847a09bd0a469740d3584e5863c,
-        type: 3}
-      propertyPath: projectileLaunchSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3978391114289682195, guid: 6c0c4847a09bd0a469740d3584e5863c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -474,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 3978391114289682196, guid: 6c0c4847a09bd0a469740d3584e5863c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0c4847a09bd0a469740d3584e5863c, type: 3}

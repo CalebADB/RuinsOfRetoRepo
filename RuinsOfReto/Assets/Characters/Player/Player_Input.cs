@@ -6,6 +6,7 @@ namespace masterFeature
 {
     public class Player_Input : MonoBehaviour
     {
+        private Controller[] controllers;
         private Player_Controller player;
         private CameraGrip cameraGrip;
 
@@ -18,6 +19,7 @@ namespace masterFeature
         
         private void Start()
         {
+            controllers = FindObjectOfType<ControllerRegister>().controllers;
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             if (players.Length == 1) { player = players[0].GetComponentInChildren<Player_Controller>(); }
             else { Debug.Log("More then one object with player tag"); };
@@ -36,7 +38,10 @@ namespace masterFeature
                     Cursor.lockState = CursorLockMode.Confined;
                     if (VirtualInputManager.Instance.exit)
                     {
-                        player.pause = true;
+                        foreach (Controller controller in controllers)
+                        {
+                            controller.pause = true;
+                        }
                         cameraGrip.cameraHeld = CameraGrip.CameraType.PauseMenu;
                         gameState = GameStates.Pause;
                     }
@@ -52,7 +57,10 @@ namespace masterFeature
                 case GameStates.Pause:
                     if (VirtualInputManager.Instance.exit)
                     {
-                        player.pause = false;
+                        foreach (Controller controller in controllers)
+                        {
+                            controller.pause = false;
+                        }
                         cameraGrip.cameraHeld = CameraGrip.CameraType.Play;
                         gameState = GameStates.Play;
                     }

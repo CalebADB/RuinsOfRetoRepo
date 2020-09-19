@@ -113,7 +113,6 @@ namespace masterFeature
                         music1_CurrentVolume = music1_initialVolume;
                         mixer.SetFloat("music1Vol", music1_initialVolume);
                         music1_timePassed_Fade = 0;
-
                     }
                     else
                     {

@@ -5,9 +5,9 @@ using UnityEngine;
 namespace masterFeature
 {
     /// <summary>
-    /// The PhysicsEngine is the program and container that regulates all universal physics effects
+    /// The PhysicsEngine is the program and container that regulates all universal physics properties
     /// </summary>
-    public class PhysicsEngine : MonoBehaviour
+    public class PhysicsEngine : Singleton<PhysicsEngine>
     {
         // Time Dialation changes the speed at which the game updates.
         public float timeDialation;

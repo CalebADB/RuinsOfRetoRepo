@@ -26,7 +26,6 @@ public class VFXManager : MonoBehaviour
 
     public void StartHitTopVFX(Vector3 pos)
     {
-        Debug.Log("HitTop");
         GameObject landingVFXGO = ObjectPool.Spawn(landingPrefab, pos);
         //landingPrefab.transform.parent = transform;
         landingVFXGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));

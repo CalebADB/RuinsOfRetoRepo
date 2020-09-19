@@ -71,7 +71,7 @@ namespace masterFeature
 
             useCamera(cameraHeld);
 
-            this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, cameraGripDistance);
+            transform.position = player.transform.position;
         }
 
         // Update is called once per frame

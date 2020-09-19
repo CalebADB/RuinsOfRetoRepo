@@ -93,7 +93,6 @@ namespace masterFeature
             parentController = getController();
             frameReset();
 
-
             // Calculate velocity
             updateInputVelocity();
             updateEnvVelocity();
