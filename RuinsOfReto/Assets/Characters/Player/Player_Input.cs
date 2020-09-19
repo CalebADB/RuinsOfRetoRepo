@@ -6,7 +6,7 @@ namespace masterFeature
 {
     public class Player_Input : MonoBehaviour
     {
-        private Controller[] controllers;
+        public List<Controller> controllers;
         private Player_Controller player;
         private CameraGrip cameraGrip;
 

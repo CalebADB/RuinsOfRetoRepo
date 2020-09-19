@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2499542018926670705}
   - component: {fileID: 7534158398136651886}
   - component: {fileID: 1220433089005703476}
+  - component: {fileID: 1531643938968407135}
   m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
@@ -42,12 +43,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2499542018926670704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 201df45f64653624792483cbae835980, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e54db4770b32945b9050fc77866d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
-  anchor: {x: 0, y: 0, z: 0}
-  baseLength: 0.2
+  anchor: {x: 0, y: 0.34, z: 0}
+  baseLength: 0
   axisOfRotation: {x: 0, y: 0.34, z: 0}
 --- !u!50 &7534158398136651886
 Rigidbody2D:
@@ -85,6 +86,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -118,9 +120,25 @@ SpriteRenderer:
   m_Size: {x: 0.09, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1531643938968407135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499542018926670704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e54db4770b32945b9050fc77866d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 0
+  anchor: {x: 0, y: 0, z: 0}
+  baseLength: 0
+  axisOfRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2683875016721687146
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,20 +180,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2683875016721687146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35daab2fd825ae49a37ed451a0c6d07, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a3a918fbb02a0d4d8c1f6e55ec3048c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   _base: {fileID: 2499542018926670705}
   target: {fileID: 0}
-  projectilePrefab: {fileID: 3640286896682065867, guid: 063ab52bf61d81e4b87be13848efac4c,
+  projectilePrefab: {fileID: 3640286896682065867, guid: 9295c34fd3c1fb64a82b95f36b39bef6,
     type: 3}
   projectileType: 0
-  reloading: {fileID: -8673471921446917547, guid: 01ceaecde18e06643980fa0f43f81dad,
+  reloading: {fileID: -8673471921446917547, guid: ccb1df4212e4eaa458b65f06ba377fea,
     type: 3}
-  loaded: {fileID: -2881789917335650502, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
-  Firing: {fileID: -688722771951713173, guid: 01ceaecde18e06643980fa0f43f81dad, type: 3}
-  projectileLaunchSpeed: 0.75
-  weaponLoadTime: 2
+  loaded: {fileID: -2881789917335650502, guid: ccb1df4212e4eaa458b65f06ba377fea, type: 3}
+  Firing: {fileID: -688722771951713173, guid: ccb1df4212e4eaa458b65f06ba377fea, type: 3}
+  projectileLaunchSpeed: 0
+  weaponLoadTime: 0
   weaponFired: 0
   recoil: 0

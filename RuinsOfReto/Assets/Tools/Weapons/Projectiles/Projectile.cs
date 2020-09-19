@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,13 @@ namespace masterFeature
         private float timeLeft;
         [Range(0f,10f)]
         public GameObject impactEffectPrefab;
+        public enum ProjectileType
+        {
+            grenade,
+            missle,
+            plasma
+        }
+        private ProjectileType projectileType;
 
         void Start()
         {
@@ -67,6 +75,16 @@ namespace masterFeature
                     velocity.x = -velocity.x / 2;
                 }
             }
+        }
+
+        public void setProjectileType(ProjectileType newProjectileType)
+        {
+            projectileType = newProjectileType;
+        }
+
+        public ProjectileType getProjectileType()
+        {
+            return projectileType;
         }
 
         private void DamageAroundThisArea(float radius)

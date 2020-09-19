@@ -45,14 +45,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3640286896682065867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f432edc953c06e4f9a9ab5259da9bfa, type: 3}
+  m_Script: {fileID: 11500000, guid: d6e2c4c5baae6b942b34594c296d5e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   explodeOnCollision: 0
-  damage: 1
-  timer: 4
+  damage: 0
+  timer: 0
   impactEffectPrefab: {fileID: 0}
+  projectileType: 0
 --- !u!61 &7111916437814388654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,6 +114,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -146,7 +148,7 @@ SpriteRenderer:
   m_Size: {x: 0.07, y: 0.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1889123301357442802

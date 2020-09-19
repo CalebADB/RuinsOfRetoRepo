@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 186674791325557403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7901aed19c6e4742a2bd798364dd672, type: 3}
+  m_Script: {fileID: 11500000, guid: 633d6f491a7bd4a4a93e5209e8d82e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
@@ -51,10 +51,10 @@ MonoBehaviour:
   tether: {fileID: 5966394299219865575}
   hook: {fileID: 8804409487249268568}
   target: {fileID: 0}
-  hookLaunchSpeed: 1.67
-  pullStrength: 20
+  hookLaunchSpeed: 3
+  pullStrength: 17.2
   pullForce: {x: 0, y: 0}
-  pullForceMax: 64.73
+  pullForceMax: 100
   grapplerState: 0
 --- !u!1 &2691474592291115772
 GameObject:
@@ -98,12 +98,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2691474592291115772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4b7a704026ea54a819c1435c52881f, type: 3}
+  m_Script: {fileID: 11500000, guid: c5d0c279a00fc554eb4c7e8126ca7716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
   anchor: {x: 0, y: 0, z: 0}
-  baseLength: 0.18
+  baseLength: 0.17
   axisOfRotation: {x: 0, y: 0.34, z: 0}
 --- !u!50 &1576469202182240283
 Rigidbody2D:
@@ -141,6 +141,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -165,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: -476431323
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b711933a0c14cec4a8276755619badbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2dd0e105d5f960499ad36bff09fcfaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,12 +221,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5361934136351382126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bc0fe71e925d9944b8a3d22b04ac75c, type: 3}
+  m_Script: {fileID: 11500000, guid: 94a58fbf73806ff47b1609e99dc0caa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   localCollisionManager: {fileID: 2668704519982144065}
   velocity: {x: 0, y: 0}
-  attachPos: {x: 0, y: 0, z: 0}
+  attachPos: {x: 0.11, y: 0.34, z: 0}
 --- !u!114 &2668704519982144065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 512
-  collider: {fileID: 0}
+  collider: {fileID: 912448226259391409}
   vertRayCount: 2
   horzRayCount: 2
 --- !u!61 &912448226259391409
@@ -263,7 +264,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
     oldSize: {x: 0.1, y: 0.09}
-    newSize: {x: 0.01, y: 0.01}
+    newSize: {x: 0.1, y: 0.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -307,6 +308,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 2147483648
   m_RendererPriority: 0
   m_Materials:
@@ -331,12 +333,12 @@ SpriteRenderer:
   m_SortingLayerID: -476431323
   m_SortingLayer: -4
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: b55611e36fc02a645be341383012b187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5261454fa9f2f894f9f15d78b7eca481, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.01, y: 0.01}
+  m_Size: {x: 0.1, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -383,7 +385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7767921305848357624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54c51181ad1a4546bc35ce7b9a52b72, type: 3}
+  m_Script: {fileID: 11500000, guid: fc0ccf1fbfff1444b91975acec5c63e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tetherThickness: 0.01
@@ -402,6 +404,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -41,7 +41,6 @@ namespace masterFeature
         {
             update();
             getHitByEnemy();
-            Debug.Log(health);
         }
 
         public void SwitchToWeapon(WeaponType weaponType)
@@ -77,7 +76,7 @@ namespace masterFeature
 
         private void JumpStart(Vector3 jumpPoint)
         {
-            Debug.Log("player jump");
+//            Debug.Log("player jump");
             if (MusicEngine.Instance != null)
             {
                 MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.jumpPlayer);
