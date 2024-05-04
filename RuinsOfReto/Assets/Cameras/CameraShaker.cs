@@ -27,7 +27,7 @@ namespace masterFeature
         }
 
         // Update is called once per frame
-        private void Update()
+        private void FixedUpdate()
         {
             traumaDampening = traumaDampeningFactor / 100;
             if (traumaCur > 0f)

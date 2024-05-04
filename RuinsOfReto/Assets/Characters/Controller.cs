@@ -97,7 +97,7 @@ namespace masterFeature
             VFXManager.Instance.StartHitLeftVFX(hitPoint);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             update();
         }
@@ -178,7 +178,7 @@ namespace masterFeature
         }
         public void die()
         {
-            deathTimeCur += Time.deltaTime;
+            deathTimeCur += Time.fixedDeltaTime;
             if (deathTimeCur > deathTimeLength)
             {
                 if (canRespawn)

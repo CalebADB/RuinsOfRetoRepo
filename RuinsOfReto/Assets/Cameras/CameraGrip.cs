@@ -25,8 +25,8 @@ namespace masterFeature
             Play,
             PauseMenu
         }
-        public CameraType cameraHeld;
-        private CameraType cameraHeldLastFrame;
+        [SerializeField] public CameraType cameraHeld;
+        [SerializeField] private CameraType cameraHeldLastFrame;
 
         // Camera Anchor Equation Variables        
         [Range(-20f, 0f)]
@@ -75,7 +75,7 @@ namespace masterFeature
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
 
             if ((cameraHeld != cameraHeldLastFrame) || (camera_Play.UPDATE_VARIABLES || camera_Play.UPDATE_VARIABLES))
@@ -93,10 +93,7 @@ namespace masterFeature
                     break;
             }
             cameraHeldLastFrame = cameraHeld;
-        }
 
-        private void FixedUpdate()
-        {
             followPlayer();
         }
 

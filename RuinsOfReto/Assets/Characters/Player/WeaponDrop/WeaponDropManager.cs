@@ -30,7 +30,7 @@ namespace masterFeature
             player_Controller = transform.parent.GetComponentInChildren<Player_Controller>();
         }
 
-        void Update()
+        void FixedUpdate()
         {
             CollectWeaponDrop();
         }

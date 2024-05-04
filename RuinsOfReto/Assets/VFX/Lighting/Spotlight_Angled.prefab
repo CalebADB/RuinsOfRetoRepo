@@ -66,22 +66,22 @@ PrefabInstance:
     - target: {fileID: 2342624934770760037, guid: 5fb5ac35df40e9040a59a9840038f72c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.478
+      value: 0.181
       objectReference: {fileID: 0}
     - target: {fileID: 2342624934770760037, guid: 5fb5ac35df40e9040a59a9840038f72c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.111
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4758989409911106626, guid: 5fb5ac35df40e9040a59a9840038f72c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.118
       objectReference: {fileID: 0}
     - target: {fileID: 4758989409911106626, guid: 5fb5ac35df40e9040a59a9840038f72c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.127
       objectReference: {fileID: 0}
     - target: {fileID: 4758989409911106626, guid: 5fb5ac35df40e9040a59a9840038f72c,
         type: 3}
@@ -152,6 +152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LightVolumeOpacity
       value: 0.537
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511992304323870300, guid: 5fb5ac35df40e9040a59a9840038f72c,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb5ac35df40e9040a59a9840038f72c, type: 3}

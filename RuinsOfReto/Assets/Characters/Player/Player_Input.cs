@@ -6,9 +6,9 @@ namespace masterFeature
 {
     public class Player_Input : MonoBehaviour
     {
-        public List<Controller> controllers;
-        private Player_Controller player;
-        private CameraGrip cameraGrip;
+        [SerializeField] public List<Controller> controllers;
+        [SerializeField] private Player_Controller player;
+        [SerializeField] private CameraGrip cameraGrip;
 
         public enum GameStates
         {
@@ -19,17 +19,10 @@ namespace masterFeature
         
         private void Start()
         {
-            controllers = FindObjectOfType<ControllerRegister>().controllers;
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            if (players.Length == 1) { player = players[0].GetComponentInChildren<Player_Controller>(); }
-            else { Debug.Log("More then one object with player tag"); };
 
-            GameObject[] cameraGrips = GameObject.FindGameObjectsWithTag("MainCamera");
-            if (cameraGrips.Length == 1) { cameraGrip = cameraGrips[0].GetComponentInChildren<CameraGrip>(); }
-            else { Debug.Log("More then one object with MainCamera tag"); };
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             
             switch (gameState)

@@ -100,13 +100,13 @@ namespace masterFeature
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
             switch (music1_fadeType)
             {
                 case FadeType.Fadein_Music:
 
-                    music1_timePassed_Fade += Time.deltaTime;
+                    music1_timePassed_Fade += Time.fixedDeltaTime;
                     if (music1_timePassed_Fade >= fadeTime)
                     {
                         music1_fadeType = FadeType.None;
@@ -128,7 +128,7 @@ namespace masterFeature
 
                 case FadeType.Fadeout_Music:
 
-                    music1_timePassed_Fade += Time.deltaTime;
+                    music1_timePassed_Fade += Time.fixedDeltaTime;
                     if (music1_timePassed_Fade >= fadeTime)
                     {
                         music1_AudioSource.Stop();
@@ -147,7 +147,7 @@ namespace masterFeature
             {
                 case FadeType.Fadein_Music:
 
-                    music2_timePassed_Fade += Time.deltaTime;
+                    music2_timePassed_Fade += Time.fixedDeltaTime;
                     if (music2_timePassed_Fade >= fadeTime)
                     {
                         music2_fadeType = FadeType.None;
@@ -170,7 +170,7 @@ namespace masterFeature
 
                 case FadeType.Fadeout_Music:
 
-                    music2_timePassed_Fade += Time.deltaTime;
+                    music2_timePassed_Fade += Time.fixedDeltaTime;
                     if (music2_timePassed_Fade >= fadeTime)
                     {
                         music2_AudioSource.Stop();

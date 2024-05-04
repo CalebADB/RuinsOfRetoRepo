@@ -14,7 +14,7 @@ namespace masterFeature
             testEnemy = GetComponent<TestEnemy_B>();
         }
 
-        void Update()
+        void FixedUpdate()
         {
             
             testEnemy.slow = slow;

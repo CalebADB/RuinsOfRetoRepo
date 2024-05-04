@@ -26,7 +26,7 @@ namespace masterFeature
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (!steadyCamera) { cameraShaker.shake(); };
         }

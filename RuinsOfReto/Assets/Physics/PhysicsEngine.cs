@@ -18,9 +18,5 @@ namespace masterFeature
             gravity = GetComponent<Gravity>();
         }
 
-        private void Update()
-        {
-            Time.timeScale = timeDialation;
-        }
     }
 }

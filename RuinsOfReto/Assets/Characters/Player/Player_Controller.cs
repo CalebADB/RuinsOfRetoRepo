@@ -37,7 +37,7 @@ namespace masterFeature
             localPhysicsEngine.HitLeft_Event += HitLeft;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             update();
             getHitByEnemy();

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace masterFeature
 {
@@ -13,6 +15,8 @@ namespace masterFeature
 
         // Prep:
         public LayerMask collisionMask;
+        public LayerMask portalLayerMask;
+        
         public new BoxCollider2D collider;
         private RaycastOrigins raycastOrigins;
         private Vector2 rayOrigin;
@@ -62,11 +66,13 @@ namespace masterFeature
             collisionData.vertCollision = false;
             collisionData.topCollision = false;
             collisionData.bottomCollision = false;
+            collisionData.portalTriggerEntered = false;
 
             // CHECK to see if the object will collide
             updateRaycastOrigins();
             checkVertCollision(displacement);
             checkHorzCollision(displacement);
+            checkPortalTrigger(displacement);
 
             // IF object will collide THEN we calculate and return that distance
             if (collisionData.horzCollision || collisionData.vertCollision)
@@ -172,6 +178,41 @@ namespace masterFeature
             collisionData.horzCollisionDistance = (rayLength - skinWidth) * direction.x;
         }
 
+        private void checkPortalTrigger(Vector2 displacement)
+        {
+            // New method to check for portal triggers
+            float rayLength = Mathf.Max(Mathf.Abs(displacement.x), Mathf.Abs(displacement.y)) + skinWidth;
+            Vector2 direction = new Vector2(Mathf.Sign(displacement.x), Mathf.Sign(displacement.y));
+
+            RaycastHit2D hit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, direction, rayLength, portalLayerMask);
+            if (hit.collider != null)
+            {
+                TriggerLevelTransition();
+            }
+        }
+
+        private void TriggerLevelTransition()
+        {
+            // Assuming SceneTransition is a static class that manages scene transitions
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = currentSceneIndex + 1;
+
+            // Check if the next scene index exceeds your available scenes count
+            // This example simply wraps around to the first scene
+            if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+            {
+                nextSceneIndex = 0;
+            }
+
+            // Play level finished music if the MusicEngine is available
+            if (MusicEngine.Instance != null)
+            {
+                MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.LevelFinished);
+            }
+
+            // Transition to the next scene
+            SceneTransition.TransitionToNextScene((SceneTransition.SceneName)nextSceneIndex);
+        }
         /// <summary>
         /// Calculates new displacement using collisionData
         /// </summary>
@@ -218,6 +259,9 @@ namespace masterFeature
             public Vector3 bottomCollisionPos;
 
             public Collider2D collidedObject;
+
+            public bool portalTriggerEntered;
+            public Collider2D collidedPortal;
         }
 
         private struct RaycastOrigins

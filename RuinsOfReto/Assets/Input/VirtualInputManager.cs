@@ -9,18 +9,18 @@ namespace masterFeature
     /// </summary>
     public class VirtualInputManager : Singleton<VirtualInputManager>
     {
-        public bool exit;
+        public bool exit = false;
 
-        public float cursorX;
-        public float cursorY;
-        public bool button1;
-        public bool button2;
+        public float cursorX = 0.0f;
+        public float cursorY = 0.0f;
+        public bool button1 = false;
+        public bool button2 = false;
 
-        public bool holdBack;
-        public bool left;
-        public bool right;
-        public bool up;
-        public bool down;
+        public bool holdBack = false;
+        public bool left = false;
+        public bool right = false;
+        public bool up = false;
+        public bool down = false;
     }
 }
 

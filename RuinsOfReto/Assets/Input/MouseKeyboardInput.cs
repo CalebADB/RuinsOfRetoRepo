@@ -17,7 +17,7 @@ namespace masterFeature
             if (cameraGrips.Length == 1) { cameraGrip = cameraGrips[0].GetComponentInChildren<CameraGrip>(); }
             else { Debug.Log("More then one object with cameraGrips tag"); };
         }
-        private void Update()
+        private void FixedUpdate()
         {
             VirtualInputManager.Instance.exit = Input.GetKeyDown(KeyCode.Escape);
 

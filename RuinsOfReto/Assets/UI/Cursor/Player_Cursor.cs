@@ -24,7 +24,7 @@ namespace masterFeature
             else { Debug.Log("More then one object with cameraGrips tag"); };
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             Cursor.visible = false;
 

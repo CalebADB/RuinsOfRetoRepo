@@ -34,8 +34,8 @@ namespace masterFeature
                     break;
                 case (Grappler.GrapplerStates.hookOut):
                     velocity -= controllerDisplacement;
-                    velocity -= physicsEngine.gravity.gravityStrength * Time.deltaTime;
-                    Vector2 displacement = velocity * Time.deltaTime;
+                    velocity -= physicsEngine.gravity.gravityStrength * Time.fixedDeltaTime;
+                    Vector2 displacement = velocity * Time.fixedDeltaTime;
 
                     rb.rotation = -( Mathf.Atan2(displacement.x, displacement.y) * Mathf.Rad2Deg - 90f);
 

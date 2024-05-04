@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5025841100198139437}
   - component: {fileID: 5025841100198139432}
   - component: {fileID: 5025841100198139439}
+  - component: {fileID: 6531069548910693570}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -135,6 +136,9 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1536
+  portalLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
   collider: {fileID: 5025841100198139437}
   vertRayCount: 4
   horzRayCount: 4
@@ -235,6 +239,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6531069548910693570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025841100198139435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b0e8d44344a14c811ddfb23d8f599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &558302697955017121
 PrefabInstance:
   m_ObjectHideFlags: 0

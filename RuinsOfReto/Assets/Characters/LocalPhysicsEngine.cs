@@ -100,7 +100,7 @@ namespace masterFeature
             velocity = envVelocity / frameSpeedCorrection + inputVelocity;
 
             // Calculate displacement
-            displacement = velocity * Time.deltaTime;
+            displacement = velocity * Time.fixedDeltaTime;
 
             // Collisions management
             displacement = localCollisionManager.checkDisplacement(displacement);
@@ -187,11 +187,11 @@ namespace masterFeature
                     }
                     break;
                 case Controller.EnvState.Air:
-                    if (parentController.rise) { envVelocity.y += (stateSpeed.y / 4) * Time.deltaTime; }
+                    if (parentController.rise) { envVelocity.y += (stateSpeed.y / 4) * Time.fixedDeltaTime; }
                     if (parentController.moveRight ^ parentController.moveLeft)
                     {
-                        if (parentController.moveRight) { envVelocity.x += (stateSpeed.x / 4) * Time.deltaTime; }
-                        else { envVelocity.x += -(stateSpeed.x / 4) * Time.deltaTime; }
+                        if (parentController.moveRight) { envVelocity.x += (stateSpeed.x / 4) * Time.fixedDeltaTime; }
+                        else { envVelocity.x += -(stateSpeed.x / 4) * Time.fixedDeltaTime; }
                     }
                     break;
                 default:
@@ -204,8 +204,8 @@ namespace masterFeature
                 grappler.updateGrappler();
                 if (grappler.grapplerState == Grappler.GrapplerStates.hookAttached)
                 {
-                    envVelocity.x += grappler.pullForce.x * Time.deltaTime;
-                    envVelocity.y += grappler.pullForce.y * Time.deltaTime;
+                    envVelocity.x += grappler.pullForce.x * Time.fixedDeltaTime;
+                    envVelocity.y += grappler.pullForce.y * Time.fixedDeltaTime;
                 }
             }
             if (hasProjectileLauncher)
@@ -213,12 +213,12 @@ namespace masterFeature
                 projectileLauncher.updateProjectileLauncher();
                 if (projectileLauncher.weaponFired)
                 {
-                    envVelocity.x += -projectileLauncher.recoil * 10 *(projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x) *Time.deltaTime;
-                    envVelocity.y += -projectileLauncher.recoil * 10 * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y) * Time.deltaTime;
+                    envVelocity.x += -projectileLauncher.recoil * 10 *(projectileLauncher.target.transform.position.x - projectileLauncher._base.anchor.x) *Time.fixedDeltaTime;
+                    envVelocity.y += -projectileLauncher.recoil * 10 * (projectileLauncher.target.transform.position.y - projectileLauncher._base.anchor.y) * Time.fixedDeltaTime;
                 }
             }
             if (!dontfollowGravity)
-            { envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.deltaTime;
+            { envVelocity += physicsEngine.gravity.calculateGravity(this.transform.position) * Time.fixedDeltaTime;
             }
             
 
@@ -236,11 +236,11 @@ namespace masterFeature
                     }
                     else if (parentController.drop)
                     {
-                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (3 * Time.deltaTime));
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (3 * Time.fixedDeltaTime));
                     }
                     else if (localCollisionManager.collisionData.bottomCollision)
                     {
-                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (15 * Time.deltaTime));
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (15 * Time.fixedDeltaTime));
                     }
 
                     if (localCollisionManager.collisionData.horzCollision)
@@ -252,7 +252,7 @@ namespace masterFeature
                     if (localCollisionManager.collisionData.topCollision)
                     {
                         envVelocity.y = -inputVelocity.y;
-                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (1 * Time.deltaTime));
+                        envVelocity.x = Mathf.Sign(envVelocity.x) * (Mathf.Abs(envVelocity.x) - (1 * Time.fixedDeltaTime));
                     }
                     else if (localCollisionManager.collisionData.horzCollision)
                     {

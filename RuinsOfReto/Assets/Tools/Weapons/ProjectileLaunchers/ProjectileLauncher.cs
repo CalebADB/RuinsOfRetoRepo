@@ -60,7 +60,7 @@ namespace masterFeature
             }
             if (weaponLoadTimeCur < weaponLoadTime)
             {
-                weaponLoadTimeCur += Time.deltaTime;
+                weaponLoadTimeCur += Time.fixedDeltaTime;
             }
             else
             {

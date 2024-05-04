@@ -27,12 +27,6 @@ namespace masterFeature
             StartCoroutine(LoadLevelAfterDelay());
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         IEnumerator LoadLevelAfterDelay()
         {
             yield return new WaitForSeconds(loadingTime);

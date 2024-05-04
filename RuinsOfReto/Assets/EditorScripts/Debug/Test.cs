@@ -11,9 +11,5 @@ namespace masterFeature
         {
             Debug.Log("Not testing anything");
         }
-
-        private void Update()
-        {
-        }
     }
 }

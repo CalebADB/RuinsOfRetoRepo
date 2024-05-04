@@ -10,9 +10,4 @@ public class Floor_Infinite : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

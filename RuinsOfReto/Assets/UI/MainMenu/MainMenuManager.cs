@@ -18,8 +18,6 @@ namespace masterFeature
         private GameObject btnLvl3;
         [SerializeField]
         private GameObject btnLvl4;
-        [SerializeField]
-        private RectTransform pnlTutorial;
 
 
 
@@ -30,11 +28,6 @@ namespace masterFeature
             MusicEngine.Instance.Play_MusicSituation(MusicEngine.Music_Situation.Start_MenuScene);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         public void OnClick_BtnNewGame()
         {
@@ -106,7 +99,6 @@ namespace masterFeature
         {
             MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.ButtonBack);
 
-            pnlTutorial.gameObject.SetActive(false);
             pnlMain.gameObject.SetActive(true);
         }
         public void OnClick_BtnTutorial()
@@ -114,7 +106,6 @@ namespace masterFeature
             MusicEngine.Instance.PlaySFX(MusicEngine.SFXType.buttonOk);
 
             pnlMain.gameObject.SetActive(false);
-            pnlTutorial.gameObject.SetActive(true);
         }
 
 
@@ -122,7 +113,6 @@ namespace masterFeature
         {
             if (SceneTransition.UnlockedLevels <= 1)
             {
-                btnLvl2.SetActive(false);
                 btnLvl3.SetActive(false);
                 btnLvl4.SetActive(false);
             }

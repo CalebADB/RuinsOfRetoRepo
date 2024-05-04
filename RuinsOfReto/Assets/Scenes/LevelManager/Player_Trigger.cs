@@ -10,9 +10,17 @@ namespace masterFeature
         private bool isActionMusicTriggered = false;
         private bool isCombatMusicTriggered = false;
         private bool isWinTriggered = false;
-
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Backspace))
+            {
+                SceneTransition.TransitionToNextScene((SceneTransition.SceneName)(0));
+            }
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("Collision");
+
             if (collision.gameObject.tag == "TriggerActionMusic" &&
                 isActionMusicTriggered == false)
             {
@@ -24,7 +32,7 @@ namespace masterFeature
                 }
             }
 
-            if (collision.gameObject.tag == "TriggerCombatMusic" &&
+            else if (collision.gameObject.tag == "TriggerCombatMusic" &&
                isCombatMusicTriggered == false)
             {
                 Debug.Log("Music Combat Triggered");
@@ -35,9 +43,9 @@ namespace masterFeature
                 }
             }
 
-            if (collision.gameObject.tag == "TriggerWin" &&
-               isWinTriggered == false)
+            else if (collision.gameObject.tag == "NextLevelTrigger")
             {
+
                 Debug.Log("Win Triggered");
                 isWinTriggered = true;
 

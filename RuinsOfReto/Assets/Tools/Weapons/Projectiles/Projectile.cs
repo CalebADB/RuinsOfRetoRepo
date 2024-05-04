@@ -35,11 +35,11 @@ namespace masterFeature
             timeLeft = timer;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            timeLeft -= Time.deltaTime;
-            velocity -= physicsEngine.gravity.gravityStrength * Time.deltaTime / 2;
-            Vector2 displacement = velocity * Time.deltaTime;
+            timeLeft -= Time.fixedDeltaTime;
+            velocity -= physicsEngine.gravity.gravityStrength * Time.fixedDeltaTime / 2;
+            Vector2 displacement = velocity * Time.fixedDeltaTime;
             displacement = localCollisionManager.checkDisplacement(displacement);
 
             rb.rotation = - (Mathf.Atan2(displacement.x, displacement.y * Mathf.Rad2Deg - 90f));
